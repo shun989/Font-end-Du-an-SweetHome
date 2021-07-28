@@ -24,21 +24,23 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="login">
-            <form>
+            <form *ngIf="formLogin" [formGroup]="formLogin">
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email">
+                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email"
+                formControlName="email">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password">
+                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password"
+                formControlName="password">
               </div>
               <p class="text-lg-right"><a href="forgot-password.html">Forgot Password</a></p>
               <div class="checkbox">
                 <input type="checkbox" id="remember_me">
                 <label for="remember_me">Remember Me</label>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+              <button type="submit" class="btn btn-primary btn-lg" (click)="submitLogin()">Sign In</button>
             </form>
           </div>
         </div>

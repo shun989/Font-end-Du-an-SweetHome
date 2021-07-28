@@ -24,24 +24,82 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="login">
-            <form>
+            <form *ngIf="formRegister" [formGroup]="formRegister">
               <div class="form-group">
                 <label for="name">Your Name</label>
-                <input type="text" id="name" class="form-control form-control-lg" placeholder="Your Name">
+                <input type="text" id="name" class="form-control form-control-lg" placeholder="Your Name"
+                       formControlName="name"
+                       [ngClass]="name && name.invalid && (name.dirty || name.touched) ? 'is-invalid' : ''" />
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.name">
+                    <div class="error-message"
+                         *ngIf="name && name.invalid && name.hasError(error.type) && (name.dirty || name.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email">
+                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email"
+                       formControlName="email"
+                       [ngClass]="email && email.invalid && (email.dirty || email.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message"
+                         *ngIf="email && email.invalid && email.hasError(error.type) && (email.dirty || email.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" class="form-control form-control-lg" placeholder="Phone Number"
+                       formControlName="phone"
+                       [ngClass]="phone && phone.invalid && (phone.dirty || phone.touched) ? 'is-invalid' : ''" />
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.phone">
+                    <div class="error-message"
+                         *ngIf="phone && phone.invalid && phone.hasError(error.type) && (phone.dirty || phone.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password">
+                <input type="password" id="password" class="form-control form-control-lg" placeholder="Password"
+                       formControlName="password"
+                       [ngClass]="password && password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message"
+                         *ngIf="password && password.invalid && password.hasError(error.type) && (password.dirty || password.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control form-control-lg" placeholder="Confirm Password"
+                       formControlName="confirmPassword"
+                       [ngClass]="confirmPassword && confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.confirmPassword">
+                    <div class="error-message"
+                         *ngIf="confirmPassword && confirmPassword.invalid && confirmPassword.hasError(error.type) && (confirmPassword.dirty || confirmPassword.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="checkbox">
                 <input type="checkbox" id="terms">
                 <label for="terms">By registering I accept our Terms of Use and Privacy.</label>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg">Register</button>
+              <button type="submit" class="btn btn-primary btn-lg" (click)="submitRegister()">Register</button>
             </form>
           </div>
         </div>
