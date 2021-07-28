@@ -3,14 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MasterComponent} from "./auth/component/layout/master/master.component";
+import {MenuTopComponent} from "./auth/component/layout/menu-top/menu-top.component";
+import {FooterComponent} from "./auth/component/layout/footer/footer.component";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HomeMasterComponent} from "./home-page/component/layout/home-master/home-master.component";
+import {HomeFooterComponent} from "./home-page/component/layout/home-footer/home-footer.component";
+import {HomeMenuTopComponent} from "./home-page/component/layout/home-menu-top/home-menu-top.component";
+import {HomeSearchComponent} from "./home-page/component/layout/home-search/home-search.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MasterComponent,
+    MenuTopComponent,
+    FooterComponent,
+    HomeMasterComponent,
+    HomeFooterComponent,
+    HomeMenuTopComponent,
+    HomeSearchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,9 +27,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/lib/bootstrap/css/bootstrap.min.css",
+              "src/assets/lib/font-awesome/css/font-awesome.min.css",
+              "src/assets/lib/animate.css",
+              "src/assets/lib/selectric/selectric.css",
+              "src/assets/lib/aos/aos.css",
+              "src/assets/lib/Magnific-Popup/magnific-popup.css",
+              "src/assets/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/lib/jquery-3.2.1.min.js",
+              "src/assets/lib/popper.min.js",
+              "src/assets/lib/bootstrap/js/bootstrap.min.js",
+              "src/assets/lib/selectric/jquery.selectric.js",
+              "src/assets/lib/aos/aos.js",
+              "src/assets/lib/Magnific-Popup/jquery.magnific-popup.min.js",
+              "src/assets/lib/sticky-sidebar/ResizeSensor.min.js",
+              "src/assets/lib/sticky-sidebar/theia-sticky-sidebar.min.js",
+              "src/assets/lib/lib.js"
+            ]
           },
           "configurations": {
             "production": {
