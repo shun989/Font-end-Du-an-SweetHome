@@ -4,6 +4,7 @@ import {MasterComponent} from "./auth/component/layout/master/master.component";
 import {HomeMasterComponent} from "./home-page/component/layout/home-master/home-master.component";
 import {AuthGuard} from "./auth/service/auth.guard";
 import {HomeActionComponent} from "./home-page/component/layout/home-action/home-action.component";
+import {ChangePasswordComponent} from "./auth/component/change-password/change-password.component";
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
       }
     ],
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent
   }
 
 ];
