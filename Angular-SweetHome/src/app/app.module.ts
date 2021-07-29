@@ -12,10 +12,12 @@ import {HomeMasterComponent} from "./home-page/component/layout/home-master/home
 import {HomeFooterComponent} from "./home-page/component/layout/home-footer/home-footer.component";
 import {HomeMenuTopComponent} from "./home-page/component/layout/home-menu-top/home-menu-top.component";
 import {HomeSearchComponent} from "./home-page/component/layout/home-search/home-search.component";
-import {MenuLeftComponent} from "./home-page/component/layout/menu-left/menu-left.component";
-import {HomeActionComponent} from "./home-page/component/layout/home-action/home-action.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
+import { ActionMasterComponent } from './home-action/component/layout/action-master/action-master.component';
+import { ActionMenuTopComponent } from './home-action/component/layout/action-menu-top/action-menu-top.component';
+import { ActionMenuLeftComponent } from './home-action/component/layout/action-menu-left/action-menu-left.component';
+import { ActionFooterComponent } from './home-action/component/layout/action-footer/action-footer.component';
 
 
 @NgModule({
@@ -28,8 +30,10 @@ import {ToastrModule} from "ngx-toastr";
     HomeFooterComponent,
     HomeMenuTopComponent,
     HomeSearchComponent,
-    MenuLeftComponent,
-    HomeActionComponent,
+    ActionMasterComponent,
+    ActionMenuTopComponent,
+    ActionMenuLeftComponent,
+    ActionFooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MasterComponent} from "./auth/component/layout/master/master.component";
 import {HomeMasterComponent} from "./home-page/component/layout/home-master/home-master.component";
 import {AuthGuard} from "./auth/service/auth.guard";
-import {HomeActionComponent} from "./home-page/component/layout/home-action/home-action.component";
+import {ActionMasterComponent} from "./home-action/component/layout/action-master/action-master.component";
 
 const routes: Routes = [
   {
@@ -36,11 +36,11 @@ const routes: Routes = [
 
   {
     path: '',
-    component: HomeActionComponent,
+    component: ActionMasterComponent,
     children: [
       {
         path:'add-apartment',
-        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
+        loadChildren: () => import('./home-action/home-action.module').then(m => m.HomeActionModule),
       }
     ],
     canActivate: [AuthGuard]
