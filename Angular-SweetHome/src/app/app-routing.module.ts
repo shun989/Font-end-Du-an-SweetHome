@@ -2,33 +2,49 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {MasterComponent} from "./auth/component/layout/master/master.component";
 import {HomeMasterComponent} from "./home-page/component/layout/home-master/home-master.component";
+import {AuthGuard} from "./auth/service/auth.guard";
+import {HomeActionComponent} from "./home-page/component/layout/home-action/home-action.component";
 
 const routes: Routes = [
+  {
+    path: 'account',
+    component: MasterComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      }
+    ]
+  },
+
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+
   {
     path: 'home',
     component: HomeMasterComponent,
     children: [
       {
         path: '',
-        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule)
+        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
       }
     ]
   },
+
   {
     path: '',
-    component: MasterComponent,
+    component: HomeActionComponent,
     children: [
       {
-        path: 'home',
-        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+        path:'add-apartment',
+        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
       }
-    ]
-  },
+    ],
+    canActivate: [AuthGuard]
+  }
 
 ];
 

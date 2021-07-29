@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../shared/model/user";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-register',
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     public authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -82,13 +84,13 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.formRegister.controls; }
 
   submitRegister():void {
 
     this.userModelObj.name = this.formRegister.value.name;
     this.userModelObj.password = this.formRegister.value.password;
+    this.userModelObj.phone = this.formRegister.value.phone;
     // @ts-ignore
     this.userModelObj.password_confirmation = this.formRegister.value.confirmPassword;
     this.userModelObj.email = this.formRegister.value.email;
@@ -99,7 +101,8 @@ export class RegisterComponent implements OnInit {
         let ref = document.getElementById('cancel')
         ref?.click();
         this.formRegister.reset();
-        this.router.navigate(['../login']);
+        this.toastr.success('Success', 'Register Successfully!')
+        this.router.navigate(['./login']);
       },
       error => {
         this.message = error.error
@@ -130,8 +133,7 @@ export class RegisterComponent implements OnInit {
     return this.formRegister?.get('password')
   }
   get confirmPassword(){
-    return this.formRegister?.get('confirmPassword')
+    return this.formRegister?.get('confirmPassword')?.errors;
   }
-
 
 }

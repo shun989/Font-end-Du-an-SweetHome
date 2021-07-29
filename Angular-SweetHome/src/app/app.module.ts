@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {MasterComponent} from "./auth/component/layout/master/master.component";
 import {MenuTopComponent} from "./auth/component/layout/menu-top/menu-top.component";
 import {FooterComponent} from "./auth/component/layout/footer/footer.component";
@@ -12,6 +12,11 @@ import {HomeMasterComponent} from "./home-page/component/layout/home-master/home
 import {HomeFooterComponent} from "./home-page/component/layout/home-footer/home-footer.component";
 import {HomeMenuTopComponent} from "./home-page/component/layout/home-menu-top/home-menu-top.component";
 import {HomeSearchComponent} from "./home-page/component/layout/home-search/home-search.component";
+import {MenuLeftComponent} from "./home-page/component/layout/menu-left/menu-left.component";
+import {HomeActionComponent} from "./home-page/component/layout/home-action/home-action.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
+
 
 @NgModule({
   declarations: [
@@ -23,15 +28,30 @@ import {HomeSearchComponent} from "./home-page/component/layout/home-search/home
     HomeFooterComponent,
     HomeMenuTopComponent,
     HomeSearchComponent,
+    MenuLeftComponent,
+    HomeActionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+      {positionClass: 'toast-bottom-center', timeOut: 5000,
+        preventDuplicates: true,
+        closeButton: true,
+        progressBar: true,
+        maxOpened: 1,
+        autoDismiss: true,
+        enableHtml: true},
+    ),
   ],
-  providers: [],
+  providers: [
+  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
