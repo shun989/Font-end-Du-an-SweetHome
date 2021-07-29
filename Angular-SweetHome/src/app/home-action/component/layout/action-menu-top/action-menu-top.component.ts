@@ -3,11 +3,12 @@ import {AuthService} from "../../../../auth/service/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-home-menu-top',
-  templateUrl: './home-menu-top.component.html',
-  styleUrls: ['./home-menu-top.component.css']
+  selector: 'app-action-menu-top',
+  templateUrl: './action-menu-top.component.html',
+  styleUrls: ['./action-menu-top.component.css']
 })
-export class HomeMenuTopComponent implements OnInit {
+export class ActionMenuTopComponent implements OnInit {
+
 
   isLogin: boolean | undefined;
   user: any;
@@ -40,7 +41,6 @@ export class HomeMenuTopComponent implements OnInit {
       localStorage.removeItem('user');
       this.checkLogin();
     });
-    this.router.navigate(['./'])
+    this.router.navigate(['#'])
   }
-
 }
