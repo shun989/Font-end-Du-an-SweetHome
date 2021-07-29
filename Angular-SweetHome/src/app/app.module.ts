@@ -39,7 +39,7 @@ import {ToastrModule} from "ngx-toastr";
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(
-      {positionClass: 'toast-bottom-center', timeOut: 5000,
+      {positionClass: 'toast-top-center', timeOut: 3000,
         preventDuplicates: true,
         closeButton: true,
         progressBar: true,
