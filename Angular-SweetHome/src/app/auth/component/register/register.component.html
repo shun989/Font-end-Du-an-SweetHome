@@ -24,6 +24,9 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="login">
+            <div  *ngIf="message" class="alert alert-warning">
+              {{ message }}
+            </div>
             <form *ngIf="formRegister" [formGroup]="formRegister">
               <div class="form-group">
                 <label for="name">Your Name</label>

@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit {
         ref?.click();
         this.formRegister.reset();
         this.toastr.success('Success', 'Register Successfully!')
-        this.router.navigate(['./login']);
+        this.router.navigate(['account/login']);
       },
       error => {
         this.message = error.error

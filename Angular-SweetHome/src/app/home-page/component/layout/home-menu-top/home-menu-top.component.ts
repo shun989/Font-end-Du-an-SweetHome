@@ -38,9 +38,9 @@ export class HomeMenuTopComponent implements OnInit {
       console.log(res)
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      this.router.navigate(['../home'])
       this.checkLogin();
     });
+    this.router.navigate(['#'])
   }
 
 }

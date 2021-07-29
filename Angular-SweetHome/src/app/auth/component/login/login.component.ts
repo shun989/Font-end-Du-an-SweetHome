@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
     let data = this.formLogin?.value;
     this.authService.login(data).subscribe(res => {
       if (res.error) {
-        this.errLogin = res.error.message
-        this.toastr.error( 'Error', this.errLogin)
+        this.errLogin = res.message
+        this.toastr.success('Error!', 'Login Fail!')
         console.log(this.errLogin)
       } else {
         localStorage.setItem('token', res.access_token);
