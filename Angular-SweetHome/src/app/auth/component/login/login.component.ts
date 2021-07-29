@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,12 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   formLogin !: FormGroup;
+  errLogin: string = '';
 
-  errMessage = '';
   constructor(public authService: AuthService,
               private fb: FormBuilder,
-              private route: Router) {
+              private route: Router,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
     let data = this.formLogin?.value;
     this.authService.login(data).subscribe(res => {
       if (res.error) {
-        this.errMessage = res.message
+        this.errLogin = res.error.message
+        this.toastr.error( 'Error', this.errLogin)
+        console.log(this.errLogin)
       } else {
         localStorage.setItem('token', res.access_token);
         localStorage.setItem('user', JSON.stringify(res.user));
