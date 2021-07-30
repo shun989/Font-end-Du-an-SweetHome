@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePageComponent} from "./component/home-page/home-page.component";
-import {AddApartmentComponent} from "./component/add-apartment/add-apartment.component";
-import { DetailPageComponent } from './component/detail-page/detail-page.component';
+import {ShowApartmentComponent} from "./component/show-apartment/show-apartment.component";
+
 
 const routes: Routes = [
   {
@@ -11,16 +11,15 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path:'add-apartment',
-    component: AddApartmentComponent
-  }
+    path: 'show',
+    component: ShowApartmentComponent
+  },
 ]
 
 @NgModule({
   declarations: [
     HomePageComponent,
-    DetailPageComponent,
-
+    ShowApartmentComponent
   ],
   imports: [
     CommonModule,

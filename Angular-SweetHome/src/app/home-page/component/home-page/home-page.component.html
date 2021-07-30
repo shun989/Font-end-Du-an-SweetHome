@@ -1,3 +1,50 @@
+<div class="home-search">
+  <div class="main search-form">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="heading">
+            <h2>Find your new home</h2>
+            <h3>We will help you to find the best places to spend time in any city in the world.</h3>
+          </div>
+          <form action="property_listing.html">
+            <div class="card">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="Country, State, County, City, Zip, Title, Address, ID.">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <div class="form-group">
+                        <select class="form-control form-control-lg ui-select">
+                          <option value="">Property Type</option>
+                          <option value="house">House</option>
+                          <option value="flat">Flat</option>
+                          <option value="apartment">Apartment</option>
+                          <option value="land">Land</option>
+                          <option value="room">Room</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Search</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="carouselExampleTouch" class="carousel slide" data-mdb-touch="false">
   <div class="carousel-indicators">
     <button
@@ -90,7 +137,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="item item-lg">
-                      <div class="item-image" style="background-image:url(assets/img/demo/property/13.jpg);"><a href="property_single.html">
+                      <div class="item-image" style="background-image:url(assets/img/demo/property/13.jpg);"><a routerLink="/home/show">
                         <div class="item-meta">
                           <div class="item-info">
                             <h3 class="item-title">3 bed semi-detached house</h3>
@@ -167,42 +214,6 @@
       </div>
     </div>
   </div>
-<!--  <div class="feature-box centered">-->
-<!--    <div>-->
-<!--      <div class="container">-->
-<!--        <div class="row justify-content-md-center">-->
-<!--          <div class="col col-lg-12 col-xl-10">-->
-<!--            <div class="row">-->
-<!--              <div class="col-md-4">-->
-<!--                <div class="content-box">-->
-<!--                  <div class="image"> <img src="assets/img/demo/icons/1.png" width="100" alt=""> </div>-->
-<!--                  <h4>Lifestyle</h4>-->
-<!--                  <div class="caption">Create your best-ever home with the latest trends in renovating, decorating and more.</div>-->
-<!--                  <div class="button"><a href="#">FIND YOUR INSPIRATION</a></div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-4">-->
-<!--                <div class="content-box">-->
-<!--                  <div class="image"> <img src="assets/img/demo/icons/2.png" width="100" alt=""> </div>-->
-<!--                  <h4>International</h4>-->
-<!--                  <div class="caption">Thinking abroad? You can now dream and discover international properties.</div>-->
-<!--                  <div class="button"><a href="#">CHOOSE A COUNTRY</a></div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-4">-->
-<!--                <div class="content-box">-->
-<!--                  <div class="image"> <img src="assets/img/demo/icons/3.png" width="100" alt=""> </div>-->
-<!--                  <h4>Sell</h4>-->
-<!--                  <div class="caption">Understand your local market, learn how to get the best price for your property and find agents in your area.</div>-->
-<!--                  <div class="button"><a href="#">EXPLORE NOW</a></div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
   <div class="feature-box centered gray">
     <div>
       <div class="container">
@@ -273,47 +284,124 @@
       </div>
     </div>
   </div>
-  <div class="feature-box centered">
-    <div>
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-12 col-xl-10">
-            <div class="main-title"><span>What our clients say</span></div>
-            <div class="swiper-container testimonials">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="item content-box centered">
-                    <div class="image"> <img class="rounded-circle" src="assets/img/demo/profile.jpg" width="180" alt=""> </div>
-                    <h4>Thank you for your quick and clear responses. They are much appreciated. This was a site that needed to go up fast and it has – customizations and all!</h4>
-                    <div class="caption">The Brown Family</div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item content-box centered">
-                    <div class="image"> <img class="rounded-circle" src="assets/img/demo/profile2.jpg" width="180" alt="">
-                      <h4>Thank you for your quick and clear responses. They are much appreciated. This was a site that needed to go up fast and it has – customizations and all!</h4>
-                      <div class="caption">The Brown Family</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item content-box centered">
-                    <div class="image"> <img class="rounded-circle" src="assets/img/demo/profile3.jpg" width="180" alt="">
-                      <h4>Thank you for your quick and clear responses. They are much appreciated. This was a site that needed to go up fast and it has – customizations and all!</h4>
-                      <div class="caption">The Brown Family</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Add Arrows -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </div>
+  <div class="container">
+    <h3 class="text-center">The City</h3>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <img style="height: 340px"
+            src="https://mdbootstrap.com/img/new/slides/017.jpg"
+            class="card-img"
+            alt="..."
+          />
+          <div class="card-img-overlay">
+            <h5 class="card-title">Hà Nội</h5>
+            <p class="card-text">
+              Hà Nội
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card row-cols-3">
+          <img style="height: 340px"
+            src="https://mdbootstrap.com/img/new/slides/017.jpg"
+            class="card-img"
+            alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Thành phố Hồ Chí Minh</h5>
+            <p class="card-text">
+              Thành phố Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card row-cols-3">
+          <img style="height: 340px"
+            src="https://mdbootstrap.com/img/new/slides/017.jpg"
+            class="card-img"
+            alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Đà Nẵng</h5>
+            <p class="card-text">
+              Đà Nẵng
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card row-cols-3">
+          <img style="height: 340px"
+            src="https://mdbootstrap.com/img/new/slides/017.jpg"
+            class="card-img"
+            alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Huế</h5>
+            <p class="card-text">
+              Huế
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
+<div class="container">
+  <h3 class="text-center">The New Apartments</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/city/042.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/city/043.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural lead-in to
+            additional content.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="feature-box gray centered">
     <div>
       <div class="container">
