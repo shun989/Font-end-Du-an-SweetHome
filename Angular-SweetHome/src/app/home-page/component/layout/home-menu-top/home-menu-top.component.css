@@ -1,3 +1,16 @@
 .btn-logout{
   cursor: pointer;
 }
+
+.card-img{
+  height: 300px!important;
+}
+
+.card-text .card-title{
+ color: white!important;
+  display: flex;
+}
+
+.card-new-ap{
+  height: 380px!important;
+}

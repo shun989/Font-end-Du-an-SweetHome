@@ -38,7 +38,7 @@ body {
 	-webkit-font-feature-settings: "kern" 1;
 	-moz-font-feature-settings: "kern" 1;
 }
-/* Headings 
+/* Headings
 ------------------------------------
 */
 h1, h2, h3, h4, h5, h6 {
@@ -986,7 +986,7 @@ h4.title {
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 0;
-	background-image: url(../img/demo/banner1.jpg);
+	background-image: url(../img/nha-dep-ma-ai-cung-muon-ngam.jpg);
 	background-position: center;
 	background-size: cover;
 	position: relative;
