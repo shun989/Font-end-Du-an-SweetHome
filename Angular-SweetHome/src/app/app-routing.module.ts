@@ -35,11 +35,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
+    path: 'action',
     component: ActionMasterComponent,
     children: [
       {
-        path:'add-apartment',
+        path:'',
         loadChildren: () => import('./home-action/home-action.module').then(m => m.HomeActionModule),
       }
     ],

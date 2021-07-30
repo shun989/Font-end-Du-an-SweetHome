@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../../auth/service/auth.service";
-import {Router} from "@angular/router";
+import {NavigationExtras, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-home-menu-top',
@@ -11,8 +12,10 @@ export class HomeMenuTopComponent implements OnInit {
 
   isLogin: boolean | undefined;
   user: any;
+
   constructor(public authService : AuthService,
-              private router: Router)
+              private router: Router,
+              private toastr: ToastrService)
   { }
 
   ngOnInit(): void {
@@ -29,18 +32,18 @@ export class HomeMenuTopComponent implements OnInit {
   getUserLogin():void {
     if(this.authService.isLogin()) {
       this.user = JSON.parse(<string>(localStorage.getItem('user')));
+      // console.log(this.user)
     }
-    console.log(this.user.username)
   }
 
   logout():void {
     this.authService.logout().subscribe(res => {
-      console.log(res)
-      localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('token');
       this.checkLogin();
+      this.toastr.success('Success', 'Bạn đã đăng xuất thành công.')
+      this.router.navigate(['account/login']);
     });
-    this.router.navigate(['./'])
   }
 
 }

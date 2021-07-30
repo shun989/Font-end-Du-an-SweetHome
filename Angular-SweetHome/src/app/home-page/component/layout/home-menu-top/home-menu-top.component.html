@@ -57,15 +57,14 @@
           </a>
           <div class="dropdown-menu">
             <a href="my_profile.html" class="dropdown-item">My Profile</a>
-            <a href="my_password.html" class="dropdown-item">Change Password</a>
+            <a routerLink="../action/change-password" class="dropdown-item">Change Password</a>
             <a href="my_notifications.html" class="dropdown-item">Notifications</a>
           </div>
         </li>
         <li class="nav-item">
-          <a *ngIf="!user" class="nav-link nav-btn" routerLink="../account/login"><span><i class="fa fa-plus"
-                                                                                           aria-hidden="true"></i> Add apartment</span></a>
-          <a *ngIf="user" class="nav-link nav-btn" routerLink="./add-apartment"><span><i class="fa fa-plus"
-                                                                                         aria-hidden="true"></i> Add apartment</span></a>
+<!--          <a *ngIf="!user" class="nav-link nav-btn" routerLink="../account/login"><span><i class="fa fa-plus" aria-hidden="true"></i> Add apartment</span></a>-->
+<!--          <a *ngIf="user" class="nav-link nav-btn" routerLink="./add-apartment"><span><i class="fa fa-plus" aria-hidden="true"></i> Add apartment</span></a>-->
+          <a class="nav-link nav-btn" routerLink="../action/add-apartment"><span><i class="fa fa-plus" aria-hidden="true"></i> Add apartment</span></a>
         </li>
         <li class="nav-item">
           <a [hidden]="isLogin" class="nav-link nav-btn" routerLink="../account/login"><span><i
