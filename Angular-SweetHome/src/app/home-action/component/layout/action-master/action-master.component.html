@@ -1,17 +1,37 @@
 <div id="main">
-  <app-action-menu-top></app-action-menu-top>
-  <div class="clearfix"></div>
-  <div id="content">
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col col-lg-12 col-xl-10">
-          <div class="row has-sidebar">
-            <app-action-menu-left></app-action-menu-left>
-            <router-outlet></router-outlet>
-          </div>
-        </div>
+    <app-action-menu-top></app-action-menu-top>
+  <div class="container">
+    <div class="w3-sidebar w3-bar-block menu-left">
+      <app-action-menu-left></app-action-menu-left>
+    </div>
+    <div class="outlet">
+      <router-outlet></router-outlet>
+      <div style="height: 100%">
+        <app-action-footer></app-action-footer>
       </div>
     </div>
   </div>
-  <app-action-footer></app-action-footer>
 </div>
+
+<script>
+  // Get the container element
+  var btnContainer = document.getElementById("myDIV");
+
+  // Get all buttons with class="btn" inside the container
+  var btns = btnContainer.getElementsByClassName("list-group-item");
+
+  // Loop through the buttons and add the active class to the current/clicked button
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+
+      // If there's no active class
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(" active", "");
+      }
+
+      // Add the active class to the current/clicked button
+      this.className += " active";
+    });
+  }
+</script>

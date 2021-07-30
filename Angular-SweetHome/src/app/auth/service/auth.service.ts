@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../../shared/model/user";
 import {environment} from "../../../environments/environment";
 import {map} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
   currentUserLogin = this.getUserLogin.asObservable();
   userValue: User | undefined;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: Router) { }
 
   login(data: any): Observable<any> {
     return this.http.post<any>('http://localhost:8000/api/auth/login', data);
@@ -40,6 +42,7 @@ export class AuthService {
         return res;
       }))
   }
+
   logout(){
     let token =localStorage.getItem('token');
     let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
