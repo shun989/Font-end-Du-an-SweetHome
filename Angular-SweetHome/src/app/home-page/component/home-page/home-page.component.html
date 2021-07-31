@@ -45,85 +45,66 @@
     </div>
   </div>
 </div>
-
-<div id="carouselExampleTouch" class="carousel slide" data-mdb-touch="false">
-  <div class="carousel-indicators">
+<div class="container mt-5">
+  <div id="carouselExampleTouch" class="carousel slide" data-mdb-touch="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://mdbootstrap.com/img/new/slides/041.jpg"
+          class="d-block w-100"
+          style="height: 500px"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <a routerLink="./area/HN"><h5>Hà Nội</h5></a>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://angcovat.vn/imagesdata/BT631080/1-thiet-ke-nha-dep-105m2-hien-dai.jpg"
+          class="d-block w-100"
+          style="height: 500px"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://i.pinimg.com/originals/30/8c/26/308c26061f3ef5bca69d5bf47c3250ed.jpg"
+          class="d-block w-100"
+          style="height: 500px"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </div>
+      </div>
+    </div>
     <button
+      class="carousel-control-prev"
       type="button"
       data-mdb-target="#carouselExampleTouch"
-      data-mdb-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
+      data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
     <button
+      class="carousel-control-next"
       type="button"
       data-mdb-target="#carouselExampleTouch"
-      data-mdb-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselExampleTouch"
-      data-mdb-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
+      data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img
-        src="https://mdbootstrap.com/img/new/slides/041.jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img
-        src="https://mdbootstrap.com/img/new/slides/042.jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img
-        src="https://mdbootstrap.com/img/new/slides/043.jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-        </p>
-      </div>
-    </div>
-  </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-mdb-target="#carouselExampleTouch"
-    data-mdb-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-mdb-target="#carouselExampleTouch"
-    data-mdb-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
-
 <div id="content" class="pt0 pb0">
   <div class="feature-box centered gray">
     <div>
@@ -141,7 +122,7 @@
                   <div class="col-md-6">
                     <div class="item item-lg">
                       <div class="item-image" style="background-image:url(assets/img/demo/property/13.jpg);"><a
-                        href="property_single.html">
+                        routerLink="./1/detail">
                         <div class="item-meta">
                           <div class="item-info">
                             <h3 class="item-title">3 bed semi-detached house</h3>
@@ -311,71 +292,143 @@
       </div>
     </div>
   </div>
-
   <div class="container">
     <h3 class="text-center mb-5">The City</h3>
-      <div class="row row-cols-md-4" style="justify-content: center">
-        <div class="row mx-2">
-          <div class="card" style="width: 280px">
-            <img style="height: 340px"
-                 src="assets/img/photo-0-1507680440802.jpg"
-                 class="card-img"
-                 alt="..."
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title text-light">Hà Nội</h5>
-              <p class="card-text text-light">
-                Hà Nội
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card" style="width: 280px">
-            <img style="height: 340px"
-                 src="assets/img/tphcm.jpg"
-                 class="card-img"
-                 alt="..."
-            />
-            <div class="card-img-overlay text-color">
-              <h5 class="card-title">Thành phố Hồ Chí Minh</h5>
-              <p class="card-text">
-                Thành phố Hồ Chí Minh
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row mx-2">
-          <div class="card" style="width: 280px">
-            <img style="height: 340px"
-                 src="assets/img/da-nang-thanh-pho-dang-song-1.jpg"
-                 class="card-img"
-                 alt="..."
-            />
-            <div class="card-img-overlay text-color">
-              <h5 class="card-title">Đà Nẵng</h5>
-              <p class="card-text">
-                Đà Nẵng
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card" style="width: 280px">
-            <img style="height: 340px"
-                 src="assets/img/gioi-thieu-ve-thanh-pho-hue-c.jpg"
-                 class="card-img"
-                 alt="..."
-            />
-            <div class="card-img-overlay text-color">
-              <h5 class="card-title">Huế</h5>
-              <p class="card-text">
-                Huế
-              </p>
-            </div>
+    <div class="row row-cols-md-4" style="justify-content: center">
+      <div class="row mx-2">
+        <div class="card" style="width: 280px">
+          <img style="height: 340px"
+               src="assets/img/photo-0-1507680440802.jpg"
+               class="card-img"
+               alt="..."
+          />
+          <div class="card-img-overlay">
+            <a routerLink="./area/HN"><h5 class="card-title text-light">Hà Nội</h5></a>
+            <p class="card-text text-light">
+              2000
+            </p>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="card" style="width: 280px">
+          <img style="height: 340px"
+               src="assets/img/tphcm.jpg"
+               class="card-img"
+               alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Thành phố Hồ Chí Minh</h5>
+            <p class="card-text">
+              Thành phố Hồ Chí Minh
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-2">
+        <div class="card" style="width: 280px">
+          <img style="height: 340px"
+               src="assets/img/da-nang-thanh-pho-dang-song-1.jpg"
+               class="card-img"
+               alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Đà Nẵng</h5>
+            <p class="card-text">
+              Đà Nẵng
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card" style="width: 280px">
+          <img style="height: 340px"
+               src="assets/img/gioi-thieu-ve-thanh-pho-hue-c.jpg"
+               class="card-img"
+               alt="..."
+          />
+          <div class="card-img-overlay text-color">
+            <h5 class="card-title">Huế</h5>
+            <p class="card-text">
+              Huế
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h3 class="text-center mb-5">The Agents</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card" style="height: 450px">
+          <img
+            src="https://upanh123.com/wp-content/uploads/2020/12/anh-dai-dien-ngau7-2.jpg"
+            class="card-img-top"
+            style="height: 225px"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 450px">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU"
+            class="card-img-top"
+            style="height: 225px"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 450px">
+          <img
+            src="https://anhdepfree.com/wp-content/uploads/2019/08/h%C3%ACnh-dai-dien-chibi.jpg"
+            class="card-img-top"
+            style="height: 225px"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 450px">
+          <img
+            src="https://1.bp.blogspot.com/-JU3-O59sHNk/Xxbk8ak-hVI/AAAAAAAAth8/AuhOA7Lcd_YBmf9B5TvhZEWoRnZ7B1ZHgCLcBGAsYHQ/s1600/Avatar-con-trai%2B%25281%2529.png"
+            class="card-img-top"
+            style="height: 225px"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="feature-box gray centered">
     <div>
