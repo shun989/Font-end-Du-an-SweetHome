@@ -35,7 +35,9 @@
               "src/assets/lib/aos/aos.css",
               "src/assets/lib/Magnific-Popup/magnific-popup.css",
               "src/assets/css/style.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/lib/photoswipe/photoswipe.css",
+              "src/assets/lib/photoswipe/default-skin/default-skin.css"
             ],
             "scripts": [
               "src/assets/lib/jquery-3.2.1.min.js",
@@ -46,7 +48,9 @@
               "src/assets/lib/Magnific-Popup/jquery.magnific-popup.min.js",
               "src/assets/lib/sticky-sidebar/ResizeSensor.min.js",
               "src/assets/lib/sticky-sidebar/theia-sticky-sidebar.min.js",
-              "src/assets/lib/lib.js"
+              "src/assets/lib/lib.js",
+              "src/assets/lib/photoswipe/photoswipe.min.js",
+              "src/assets/lib/photoswipe/photoswipe-ui-default.min.js"
             ]
           },
           "configurations": {

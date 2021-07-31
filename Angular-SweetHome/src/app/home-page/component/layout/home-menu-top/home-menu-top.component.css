@@ -15,4 +15,11 @@
   height: 380px!important;
 }
 
+.navbar{
+  width: 100%;
+  /*overflow: hidden;*/
+  top: 0;
+  position: fixed;
+}
+
 
