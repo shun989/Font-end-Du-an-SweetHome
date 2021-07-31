@@ -1,0 +1,12 @@
+/* Style the buttons */
+.btn {
+  background-color: rgba(134, 158, 158, 0.1);
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: rgba(134, 158, 158, 0.1);
+  border-radius: 3px;
+  color: #333;
+  font-weight: bold;
+}

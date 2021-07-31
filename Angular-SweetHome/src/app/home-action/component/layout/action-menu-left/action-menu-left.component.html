@@ -1,23 +1,17 @@
-<div class="col-md-5 col-lg-4 col-xl-4 col-sidebar">
-  <div id="sidebar" class="sidebar-left">
-    <div class="sidebar_inner">
-      <div class="list-group no-border list-unstyled">
-        <span class="list-group-item heading">Manage Listings</span>
-        <a href="my_listing_add.html" class="list-group-item active"><i class="fa fa-fw fa-plus-square-o"></i> Add Listing</a>
-        <a href="my_bookmarked_listings.html" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bookmark-o"></i> Bookmarked Listing</span>
-          <span class="badge badge-primary badge-pill">10</span>
-        </a>
-        <a href="my_listings.html" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> My Listings</span>
-          <span class="badge badge-primary badge-pill">7</span>
-        </a>
-        <span class="list-group-item heading">Manage Account</span>
-        <a href="my_profile.html" class="list-group-item"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
-        <a href="my_password.html" class="list-group-item"><i class="fa fa-fw fa-lock"></i> Change Password</a>
-        <a href="my_notifications.html" class="list-group-item"><i class="fa fa-fw fa-bell-o"></i> Notifications</a>
-        <a href="my_membership.html" class="list-group-item"><i class="fa fa-fw fa-cubes"></i> Membership</a>
-        <a href="my_payments.html" class="list-group-item"><i class="fa fa-fw fa-credit-card"></i> Payments</a>
-        <a href="my_account.html" class="list-group-item"><i class="fa fa-fw fa-cog"></i> Account</a>
-      </div>
-    </div>
-  </div>
+<div class="list-group no-border list-unstyled" id="myDIV">
+  <span class="list-group-item heading">Manage Listings</span>
+  <a routerLink="../action/add-apartment" class="list-group-item "><i class="fa fa-fw fa-plus-square-o"></i> Add Listing</a>
+  <a routerLink="../action/bookmarked" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bookmark-o"></i> Bookmarked Listing</span>
+    <span class="badge badge-primary badge-pill">10</span>
+  </a>
+  <a routerLink="../action/user-list" class="list-group-item d-flex justify-content-between align-items-center"><span><i class="fa fa-fw fa-bars"></i> My Listings</span>
+    <span class="badge badge-primary badge-pill">7</span>
+  </a>
+  <span class="list-group-item heading">Manage Account</span>
+  <a routerLink="../action/profile" class="list-group-item"><i class="fa fa-fw fa-pencil"></i> My Profile</a>
+  <a routerLink="../action/change-password" class="list-group-item"><i class="fa fa-fw fa-lock"></i> Change Password</a>
+  <a routerLink="../action/notification" class="list-group-item"><i class="fa fa-fw fa-bell-o"></i> Notifications</a>
+  <a routerLink="../action/payment" class="list-group-item"><i class="fa fa-fw fa-credit-card"></i> Payments</a>
+  <a routerLink="../action/account" class="list-group-item"><i class="fa fa-fw fa-cog"></i> Account</a>
 </div>
+
