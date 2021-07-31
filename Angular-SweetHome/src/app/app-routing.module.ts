@@ -43,7 +43,7 @@ const routes: Routes = [
         loadChildren: () => import('./home-action/home-action.module').then(m => m.HomeActionModule),
       }
     ],
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 
 ];

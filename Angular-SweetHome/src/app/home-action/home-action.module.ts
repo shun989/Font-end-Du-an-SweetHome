@@ -4,6 +4,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {AddApartmentComponent} from "./component/add-apartment/add-apartment.component";
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { BookmarkedListComponent } from './component/bookmarked-list/bookmarked-list.component';
+import { UserListComponent } from './component/user-list/user-list.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'bookmarked',
+    component: BookmarkedListComponent
+  },
+  {
+    path: 'user-list',
+    component: UserListComponent
   }
 ]
 
@@ -24,7 +34,9 @@ const routes: Routes = [
   declarations: [
     AddApartmentComponent,
     ChangePasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookmarkedListComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,
