@@ -6,6 +6,9 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
 import { ProfileComponent } from './component/profile/profile.component';
 import { BookmarkedListComponent } from './component/bookmarked-list/bookmarked-list.component';
 import { UserListComponent } from './component/user-list/user-list.component';
+import { NotificationsComponent } from './component/notifications/notifications.component';
+import { PaymentsComponent } from './component/payments/payments.component';
+import { AccountComponent } from './component/account/account.component';
 
 const routes: Routes = [
   {
@@ -27,6 +30,18 @@ const routes: Routes = [
   {
     path: 'user-list',
     component: UserListComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentsComponent
+  },
+  {
+    path: 'notification',
+    component: NotificationsComponent
   }
 ]
 
@@ -36,7 +51,10 @@ const routes: Routes = [
     ChangePasswordComponent,
     ProfileComponent,
     BookmarkedListComponent,
-    UserListComponent
+    UserListComponent,
+    NotificationsComponent,
+    PaymentsComponent,
+    AccountComponent
   ],
   imports: [
     CommonModule,
