@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AddApartmentComponent} from "./component/add-apartment/add-apartment.component";
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -12,13 +13,18 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: ChangePasswordComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ]
 
 @NgModule({
   declarations: [
     AddApartmentComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
