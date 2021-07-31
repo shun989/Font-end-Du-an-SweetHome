@@ -14,7 +14,12 @@
 chrome-profiler-events*.json
 
 # IDEs and editors
-/.idea/
+../.idea/
+.idea/.gitignore
+.idea/Font-end-Du-an-SweetHome.iml
+.idea/modules.xml
+.idea/vcs.xml
+
 .project
 .classpath
 .c9/
