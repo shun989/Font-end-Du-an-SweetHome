@@ -50,7 +50,9 @@
               "src/assets/lib/sticky-sidebar/theia-sticky-sidebar.min.js",
               "src/assets/lib/lib.js",
               "src/assets/lib/photoswipe/photoswipe.min.js",
-              "src/assets/lib/photoswipe/photoswipe-ui-default.min.js"
+              "src/assets/lib/photoswipe/photoswipe-ui-default.min.js",
+              "src/assets/js/jquery.form.js",
+              "src/assets/js/jquery.min.js"
             ]
           },
           "configurations": {
