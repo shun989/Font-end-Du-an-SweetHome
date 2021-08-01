@@ -2,8 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePageComponent} from "./component/home-page/home-page.component";
-import {ShowApartmentComponent} from "./component/show-apartment/show-apartment.component";
-import {ListApartmentComponent} from './component/list-apartment/list-apartment.component';
 
 import {DetailComponent} from './component/detail/detail.component';
 import {PageListComponent} from './component/page-list/page-list.component';
@@ -16,15 +14,8 @@ import {ListInAreaComponent} from './component/list-in-area/list-in-area.compone
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
-  },
-  {
-    path: 'show/:id',
-    component: ShowApartmentComponent
-  },
-  {
-    path: 'list',
-    component: ListApartmentComponent
+    component: HomePageComponent,
+    // pathMatch: 'full'
   },
   {
     path: ':id/detail',
@@ -51,10 +42,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomePageComponent,
-
-    ShowApartmentComponent,
-    ListApartmentComponent,
-
     DetailComponent,
     PageListComponent,
     HostListComponent,

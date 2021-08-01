@@ -9,9 +9,12 @@ import {Observable} from "rxjs";
 export class ApartmentService {
 
   constructor(private http: HttpClient) { }
-
   // @ts-ignore
   getAll(): Observable<any> {
     return this.http.get(environment.ApiUrl + '/apartment')
+  }
+  // @ts-ignore
+  getById(id):Observable<any> {
+    return this.http.get(environment.ApiUrl + '/apartment/' + id)
   }
 }

@@ -11,5 +11,5 @@ export interface Apartment {
   user: string;
   category: string;
   user_id: string;
-  status_id: number;
+  status: number;
 }
