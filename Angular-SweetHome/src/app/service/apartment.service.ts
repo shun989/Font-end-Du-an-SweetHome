@@ -17,4 +17,8 @@ export class ApartmentService {
   getById(id):Observable<any> {
     return this.http.get(environment.ApiUrl + '/apartment/' + id)
   }
+
+  getListOfCustomer(id: number):Observable<any> {
+    return this.http.get(environment.ApiUrl + '/apartment/' + id + '/list-of-user')
+  }
 }

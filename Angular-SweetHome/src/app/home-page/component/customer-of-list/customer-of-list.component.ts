@@ -3,13 +3,12 @@ import {ActivatedRoute} from "@angular/router";
 import {ApartmentService} from "../../../service/apartment.service";
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  selector: 'app-customer-of-list',
+  templateUrl: './customer-of-list.component.html',
+  styleUrls: ['./customer-of-list.component.css']
 })
-export class DetailComponent implements OnInit {
-  apartment: any;
-  category: any;
+export class CustomerOfListComponent implements OnInit {
+  apartments: any;
 
   constructor(private route: ActivatedRoute,
               private apartmentService: ApartmentService) {
@@ -18,15 +17,14 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     // @ts-ignore
     let id = +this.route.snapshot.paramMap.get('id');
-    this.getById(id)
+    this.getListOfCustomer(id)
   }
 
-  getById(id: number) {
-    this.apartmentService.getById(id).subscribe((data) => {
-      this.apartment = data
+  getListOfCustomer(id: number) {
+    this.apartmentService.getListOfCustomer(id).subscribe((data) => {
+      this.apartments = data;
       console.log(data)
-    });
-
+    })
   }
 
 }

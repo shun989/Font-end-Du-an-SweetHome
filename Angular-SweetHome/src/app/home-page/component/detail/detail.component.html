@@ -4,7 +4,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item"><a href="#">Property for sale</a></li>
-        <li class="breadcrumb-item active" aria-current="page">2 bed semi-detached bungalow</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ apartment[0].name }}</li>
       </ol>
       <div class="page-header bordered mb0">
         <div class="row">
@@ -194,10 +194,6 @@
                             <td>Ward</td>
                             <td>{{ apartment[0].ward }}</td>
                           </tr>
-                          <tr>
-                            <td>Floor</td>
-                            <td>Ground Floor</td>
-                          </tr>
                         </table>
                       </div>
                     </div>
@@ -210,7 +206,7 @@
                                                                        src="assets/img/demo/profile.jpg" width="64"
                                                                        height="64" alt=""> </a></div>
                     <div class="media-body">
-                      <h4 class="media-heading"><a href="agent.html">{{ apartment[0].user }}</a></h4>
+                      <h4 class="media-heading"><a routerLink="../../list-of-customer/{{ apartment[0].user_id }}">{{ apartment[0].user }}</a></h4>
                       <p><a href="tel:01502392905"><i class="fa fa-phone" aria-hidden="true"></i>
                         Call: {{ apartment[0].phone }}</a></p>
                       <p><a href="agent.html" class="btn btn-sm btn-light">View Profile</a></p>
