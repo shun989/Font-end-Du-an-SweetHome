@@ -9,12 +9,12 @@
     <div class="collapse navbar-collapse" id="menu-content">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" routerLink="/home" role="button" aria-haspopup="true" aria-expanded="false">
             Home
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./all-apartments" role="button" aria-haspopup="true"
              aria-expanded="false">
             Listings
           </a>
@@ -30,15 +30,14 @@
                 <a href="property_single3.html" class="dropdown-item">Chung cư</a>
           </div>
         </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">
-            Outstanding
+            Agents
           </a>
           <div class="dropdown-menu">
-            <a href="agent_list.html" class="dropdown-item">Host List</a>
-            <a href="agent.html" class="dropdown-item">Apartments List</a>
+            <a routerLink="./host-list" class="dropdown-item">Host List</a>
+            <a routerLink="./apartment-hot-list" class="dropdown-item">Apartments List</a>
           </div>
         </li>
       </ul>
@@ -56,9 +55,12 @@
             </span> Hi, {{user.name}}
           </a>
           <div class="dropdown-menu">
-            <a href="my_profile.html" class="dropdown-item">My Profile</a>
+            <a routerLink="../action/profile" class="dropdown-item">Avatar</a>
+            <a routerLink="../action/profile" class="dropdown-item">My Profile</a>
             <a routerLink="../action/change-password" class="dropdown-item">Change Password</a>
-            <a href="my_notifications.html" class="dropdown-item">Avatar</a>
+            <a routerLink="../action/notification" class="dropdown-item">Notifications</a>
+            <a routerLink="../action/payment" class="dropdown-item">Payments</a>
+            <a routerLink="../action/account" class="dropdown-item">Account</a>
           </div>
         </li>
         <li class="nav-item">

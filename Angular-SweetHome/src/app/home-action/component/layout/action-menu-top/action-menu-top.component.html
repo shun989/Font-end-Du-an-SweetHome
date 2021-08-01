@@ -9,14 +9,24 @@
     <div class="collapse navbar-collapse" id="menu-content">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" routerLink="/home" role="button" aria-haspopup="true" aria-expanded="false">
             Home
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" routerLink="../action/user-list" role="button" aria-haspopup="true" aria-expanded="false">
             My Listings
           </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            Agents
+          </a>
+          <div class="dropdown-menu">
+            <a routerLink="../home/host-list" class="dropdown-item">Host List</a>
+            <a routerLink="../home/apartment-hot-list" class="dropdown-item">Apartments List</a>
+          </div>
         </li>
       </ul>
 
@@ -33,9 +43,12 @@
             </span> Hi, {{user.name}}
           </a>
           <div class="dropdown-menu">
-            <a href="my_profile.html" class="dropdown-item">My Profile</a>
+            <a routerLink="../action/profile" class="dropdown-item">Avatar</a>
+            <a routerLink="../action/profile" class="dropdown-item">My Profile</a>
             <a routerLink="../action/change-password" class="dropdown-item">Change Password</a>
-            <a href="my_notifications.html" class="dropdown-item">Avatar</a>
+            <a routerLink="../action/notification" class="dropdown-item">Notifications</a>
+            <a routerLink="../action/payment" class="dropdown-item">Payments</a>
+            <a routerLink="../action/account" class="dropdown-item">Account</a>
           </div>
         </li>
         <li class="nav-item">
