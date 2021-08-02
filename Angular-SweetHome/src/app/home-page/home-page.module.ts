@@ -9,7 +9,12 @@ import {HostListComponent} from './component/host-list/host-list.component';
 import {ApamentsHotListComponent} from './component/apaments-hot-list/apaments-hot-list.component';
 import {ListInAreaComponent} from './component/list-in-area/list-in-area.component';
 import { CustomerOfListComponent } from './component/customer-of-list/customer-of-list.component';
-
+import {MatSliderModule} from "@angular/material/slider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatNativeDateModule} from "@angular/material/core";
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 const routes: Routes = [
   {
@@ -52,10 +57,17 @@ const routes: Routes = [
     ApamentsHotListComponent,
     ListInAreaComponent,
     CustomerOfListComponent,
+
   ],
   imports: [
     CommonModule,
+    MatSliderModule,
     RouterModule.forChild(routes),
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    // MatMomentDateModule,
   ]
 })
 
