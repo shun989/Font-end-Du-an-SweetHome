@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {Message} from "../../../shared/model/message";
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,8 @@ import {ToastrService} from "ngx-toastr";
 export class LoginComponent implements OnInit {
   formLogin !: FormGroup;
   errLogin: string = '';
+  mess!: Message;
+  isDisabled: boolean = true;
 
   constructor(public authService: AuthService,
               private fb: FormBuilder,
@@ -21,18 +24,23 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formLogin = this.fb.group({
-      email: ['',[Validators.required]],
-      password: ['',[Validators.required]]
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
   }
 
   submitLogin() {
     let data = this.formLogin?.value;
-    this.authService.login(data).subscribe(res => {
+    // if (!data.email || !data.password) {
+    //   this.isDisabled = true;
+    // } else {
+    //   this.isDisabled = false
+    // }
+    this.authService.login(data).subscribe((res) => {
       if (res.error) {
         this.errLogin = res.message
-        this.toastr.success('Error!', 'Login Fail!')
-        console.log(this.errLogin)
+        // this.mess = res.error
+        // this.toastr.error('Error!', 'Login Fail!')
       } else {
         localStorage.setItem('token', res.access_token);
         localStorage.setItem('user', JSON.stringify(res.user));
@@ -43,21 +51,22 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  changeIsLogin(){
+  changeIsLogin() {
     let isLogin = this.authService.isLogin()
     this.authService.changeIsLogin(isLogin);
   }
 
-  changeUserLogin(){
-    let user =  JSON.parse(<string>(localStorage.getItem('user')));
+  changeUserLogin() {
+    let user = JSON.parse(<string>(localStorage.getItem('user')));
     return this.authService.changeUserLogin(user)
   }
 
 
-  get email(){
+  get email() {
     return this.formLogin?.get('email')
   }
-  get password(){
+
+  get password() {
     return this.formLogin?.get('password')
   }
 }

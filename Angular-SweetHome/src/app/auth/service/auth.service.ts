@@ -45,6 +45,7 @@ export class AuthService {
 
   logout(){
     let token =localStorage.getItem('token');
+    // localStorage.clear('token')
     let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
     let httpOptions = {
       headers: headers_object
