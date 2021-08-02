@@ -3,4 +3,4 @@
 Chạy các lệnh sau để project hoạt động.
 
  - 1: npm install --save-dev @angular-devkit/build-angular
- - 2: ng serve để chạy ứng  angular.
+ - 2: ng serve để chạy ứng dụng angular.
