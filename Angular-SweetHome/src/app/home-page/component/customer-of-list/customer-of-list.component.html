@@ -63,9 +63,9 @@
                     <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
                         <div class="item-badges">
 <!--                          <div class="item-badge-left">Sponsored</div>-->
-                          <div class="item-badge-right" *ngIf="apartment.status == 1">For Rent</div>
+                          <div class="item-badge-left" *ngIf="apartment.status == 1">For Rent</div>
                           <div class="item-badge-right" *ngIf="apartment.status == 2">Rented</div>
-                          <div class="item-badge-left" *ngIf="apartment.status == 3">Pending</div>
+                          <div class="item-badge-right" *ngIf="apartment.status == 3">Upgrading</div>
                         </div>
                       <div class="item-meta">
                         <div class="item-price">${{ apartment.price }}

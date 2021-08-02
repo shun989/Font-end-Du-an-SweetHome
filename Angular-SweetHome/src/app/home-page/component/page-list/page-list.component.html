@@ -172,8 +172,9 @@
                         </div>
                       </div>
                       <div class="item-badges">
-                        <div class="item-badge-left">Sponsored</div>
-                        <div class="item-badge-right">Status: {{ apartment.status }}</div>
+                        <div class="item-badge-left" *ngIf="apartment.status === 1">For Rent</div>
+                        <div class="item-badge-right" *ngIf="apartment.status === 2">Rented</div>
+                        <div class="item-badge-right" *ngIf="apartment.status === 3">Upgrading</div>
                       </div>
                     </a> <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
                     <div class="item-info">
