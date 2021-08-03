@@ -12,6 +12,7 @@ import { AccountComponent } from './component/account/account.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
+
   {
     path: 'add-apartment',
     component: AddApartmentComponent

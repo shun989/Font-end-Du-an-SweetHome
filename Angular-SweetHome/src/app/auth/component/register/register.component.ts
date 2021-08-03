@@ -4,6 +4,7 @@ import {User} from "../../../shared/model/user";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
 import {ToastrService} from "ngx-toastr";
+import {Message} from "../../../shared/model/message";
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit {
   formRegister !: FormGroup;
   message: string | undefined;
   errRegister: string|undefined;
+  mess!: Message;
   userModelObj: User = new class implements User {
     address ?: string;
     email ?: string;
@@ -35,10 +37,12 @@ export class RegisterComponent implements OnInit {
     'email': [
       {type: 'required', message: 'Email is required.'},
       {type: 'email', message: 'Email  wrong!'},
+      {type: 'unique', message: 'Email  duplicate'},
     ],
     'phone': [
       {type: 'required', message: 'Phone is required.'},
       {type: 'pattern', message: 'Telephone number wrong!'},
+      {type: 'unique:users', message: 'The phone has already been taken'},
     ],
     'password': [
       {type: 'required', message: 'Password is required.'},
@@ -99,7 +103,6 @@ export class RegisterComponent implements OnInit {
     // @ts-ignore
     this.userModelObj.password_confirmation = this.formRegister.value.confirmPassword;
     this.userModelObj.email = this.formRegister.value.email;
-
     this.authService.createUser(this.userModelObj).subscribe(res => {
         this.message = res.message
         console.log(this.message)
@@ -109,12 +112,11 @@ export class RegisterComponent implements OnInit {
         this.toastr.success('Success', this.message)
         this.router.navigate(['account/login']);
 
-    },
-   error=> {
-      this.errRegister = error.message
-      console.log(this.errRegister)
-      // this.toastr.error('Error', 'Email đã tồn tại!')
-    })
+      },
+      error => {
+        this.mess = error.error
+        console.log(this.mess)
+      })
   }
 
   passwordMatch(formGroup: FormGroup) {

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePageComponent} from "./component/home-page/home-page.component";
 import { DetailComponent } from './component/detail/detail.component';
@@ -8,14 +8,21 @@ import { HostListComponent } from './component/host-list/host-list.component';
 import { ApamentsHotListComponent } from './component/apaments-hot-list/apaments-hot-list.component';
 import { ListInAreaComponent } from './component/list-in-area/list-in-area.component';
 import { CustomerOfListComponent } from './component/customer-of-list/customer-of-list.component';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatNativeDateModule} from "@angular/material/core";
+
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: HomePageComponent,
+    // pathMatch: 'full'
   },
   {
-    path:':id/detail',
+    path: ':id/detail',
     component: DetailComponent
   },
   {
@@ -35,7 +42,7 @@ const routes: Routes = [
     component: ListInAreaComponent
   },
   {
-    path: ':customer-of-list',
+    path: 'list-of-customer/:id',
     component: CustomerOfListComponent
   }
 ]
@@ -53,7 +60,15 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MatSliderModule,
     RouterModule.forChild(routes),
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    // MatMomentDateModule,
   ]
 })
-export class HomePageModule { }
+
+export class HomePageModule {
+}
