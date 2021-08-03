@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoryService} from "../../../../service/category.service";
 
 @Component({
   selector: 'app-home-search',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSearchComponent implements OnInit {
 
-  constructor() { }
+  categories!: string;
+
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+  }
+
+  getCategory() {
+
   }
 
 }

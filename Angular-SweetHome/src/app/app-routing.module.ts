@@ -31,7 +31,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
-      }
+      },
     ]
   },
 
@@ -42,7 +42,7 @@ const routes: Routes = [
       {
         path:'',
         loadChildren: () => import('./home-action/home-action.module').then(m => m.HomeActionModule),
-      }
+      },
     ],
     canActivate: [AuthGuard]
   },

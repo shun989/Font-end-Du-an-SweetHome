@@ -10,8 +10,10 @@ import { NotificationsComponent } from './component/notifications/notifications.
 import { PaymentsComponent } from './component/payments/payments.component';
 import { AccountComponent } from './component/account/account.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
+
   {
     path: 'add-apartment',
     component: AddApartmentComponent
@@ -63,5 +65,10 @@ const routes: Routes = [
         ReactiveFormsModule,
         FormsModule
     ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+
 })
 export class HomeActionModule { }

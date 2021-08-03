@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../../shared/model/user";
 import {Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
 import {ToastrService} from "ngx-toastr";
+import {Message} from "../../../shared/model/message";
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,9 @@ import {ToastrService} from "ngx-toastr";
 })
 export class RegisterComponent implements OnInit {
   formRegister !: FormGroup;
-  message:string|undefined;
+  message: string | undefined;
+  errRegister: string|undefined;
+  mess!: Message;
   userModelObj: User = new class implements User {
     address ?: string;
     email ?: string;
@@ -34,10 +37,12 @@ export class RegisterComponent implements OnInit {
     'email': [
       {type: 'required', message: 'Email is required.'},
       {type: 'email', message: 'Email  wrong!'},
+      {type: 'unique', message: 'Email  duplicate'},
     ],
     'phone': [
       {type: 'required', message: 'Phone is required.'},
       {type: 'pattern', message: 'Telephone number wrong!'},
+      {type: 'unique:users', message: 'The phone has already been taken'},
     ],
     'password': [
       {type: 'required', message: 'Password is required.'},
@@ -50,16 +55,18 @@ export class RegisterComponent implements OnInit {
       {type: 'maxlength', message: 'Confirm Password max length.'},
     ],
   }
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     public authService: AuthService,
     private toastr: ToastrService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.formRegister = this.fb.group({
-      name: new FormControl ('', [
+      name: new FormControl('', [
         Validators.required,
         Validators.minLength(4)]),
       email: new FormControl('', [
@@ -74,38 +81,40 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20)]),
-      confirmPassword: new FormControl('',[
+      confirmPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
       ]),
-    },{
+    }, {
       validators: this.passwordMatch.bind(this)
     })
   }
 
-  get f() { return this.formRegister.controls; }
+  get f() {
+    return this.formRegister.controls;
+  }
 
-  submitRegister():void {
-
+  submitRegister(): void {
     this.userModelObj.name = this.formRegister.value.name;
     this.userModelObj.password = this.formRegister.value.password;
     this.userModelObj.phone = this.formRegister.value.phone;
     // @ts-ignore
     this.userModelObj.password_confirmation = this.formRegister.value.confirmPassword;
     this.userModelObj.email = this.formRegister.value.email;
-
-    this.authService.createUser(this.userModelObj).subscribe(res =>{
+    this.authService.createUser(this.userModelObj).subscribe(res => {
         this.message = res.message
         console.log(this.message)
         let ref = document.getElementById('cancel')
         ref?.click();
         this.formRegister.reset();
-        this.toastr.success('Success', 'Register Successfully!')
+        this.toastr.success('Success', this.message)
         this.router.navigate(['account/login']);
+
       },
       error => {
-        this.message = error.error
+        this.mess = error.error
+        console.log(this.mess)
       })
   }
 
@@ -117,22 +126,23 @@ export class RegisterComponent implements OnInit {
     return password === confirmPassword ? null : {passwordNotMatch: true};
   }
 
-  get name(){
+  get name() {
     return this.formRegister?.get('name')
   }
 
-  get email(){
+  get email() {
     return this.formRegister?.get('email')
   }
 
-  get phone(){
+  get phone() {
     return this.formRegister?.get('phone')
   }
 
-  get password(){
+  get password() {
     return this.formRegister?.get('password')
   }
-  get confirmPassword(){
+
+  get confirmPassword() {
     return this.formRegister?.get('confirmPassword')?.errors;
   }
 

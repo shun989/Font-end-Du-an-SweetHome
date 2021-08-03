@@ -3,17 +3,17 @@
     <h1>My Listings</h1>
   </div>
   <div class="item-listing list">
-    <div class="item">
+    <div class="item" *ngFor="let userApart of apartments">
       <div class="row">
         <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
+          <div class="item-image"> <a href="property_single.html"><img src="{{'http://localhost:8000/img/'+ userApart.photo}}" class="img-fluid" alt="">
             <div class="item-badges">
               <div class="item-badge-left">Sponsored</div>
               <div class="item-badge-right">For Sale</div>
             </div>
             <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
+              <div class="item-price">
+                {{userApart.price}}
               </div>
             </div>
           </a>
@@ -22,223 +22,13 @@
         </div>
         <div class="col-lg-7">
           <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
+            <h3 class="item-title"><a href="property_single.html">{{userApart.bedroomNumber}} bed semi-detached house for sale</a></h3>
+            <div class="item-location"><i class="fa fa-map-marker"></i>{{userApart.address}}</div>
             <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
             <div class="item-details">
               <ul>
                 <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
-            </div>
-            <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/2.jpg" class="img-fluid" alt="">
-            <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
-            </div>
-            <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
-              </div>
-            </div>
-          </a>
-            <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
-            <div class="item-details">
-              <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
-            </div>
-            <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/3.jpg" class="img-fluid" alt="">
-            <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
-            </div>
-            <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
-              </div>
-            </div>
-          </a>
-            <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
-            <div class="item-details">
-              <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
-            </div>
-            <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/4.jpg" class="img-fluid" alt="">
-            <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
-            </div>
-            <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
-              </div>
-            </div>
-          </a>
-            <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
-            <div class="item-details">
-              <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
-            </div>
-            <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/5.jpg" class="img-fluid" alt="">
-            <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
-            </div>
-            <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
-              </div>
-            </div>
-          </a>
-            <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
-            <div class="item-details">
-              <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
-            </div>
-            <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/6.jpg" class="img-fluid" alt="">
-            <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
-            </div>
-            <div class="item-meta">
-              <div class="item-price">$420,000
-                <small>$777 / sq m</small>
-              </div>
-            </div>
-          </a>
-            <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">3 bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3</div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
-            <div class="item-details">
-              <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span>Apartments</span></li>
+                <li>Type <span>{{userApart.categories.name}}</span></li>
               </ul>
             </div>
           </div>
@@ -256,13 +46,4 @@
       </div>
     </div>
   </div>
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-    </ul>
-  </nav>
 </div>
