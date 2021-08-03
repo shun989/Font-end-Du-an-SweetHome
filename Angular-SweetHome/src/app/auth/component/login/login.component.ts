@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(data).subscribe((res) => {
       if (res.error) {
         this.errLogin = res.message
-        // this.mess = res.error
-        // this.toastr.error('Error!', 'Login Fail!')
+        console.log(this.errLogin)
+
       } else {
         localStorage.setItem('token', res.access_token);
         localStorage.setItem('user', JSON.stringify(res.user));

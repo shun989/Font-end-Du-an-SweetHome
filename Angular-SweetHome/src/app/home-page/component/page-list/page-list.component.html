@@ -155,20 +155,18 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
-                  <div class="btn-group float-right" role="group"> <a href="property_grid.html" class="btn btn-light"><i class="fa fa-th"></i></a> <a href="property_listing.html" class="btn btn-light active"><i class="fa fa-bars"></i></a> </div>
-                </div>
               </div>
             </div>
             <div class="clearfix"></div>
             <div class="item-listing grid">
               <div class="row" >
-                <div class="col-lg-6"*ngFor="let apartment of apartments">
+                <div class="col-lg-6" *ngFor="let apartment of apartments">
                   <div class="item" >
-                    <div class="item-image"><a routerLink="../{{apartment.id}}/detail"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
+                    <div class="item-image"><a routerLink="../{{apartment.id}}/detail">
+                      <img src="{{'http://localhost:8000/img/'+apartment.photo}}" class="img-fluid" alt="" style="height: 245px">
                       <div class="item-meta">
-                        <div class="item-price">${{ apartment.price }}
-<!--                          <small>$777 / sq m</small> -->
+                        <div class="item-price">{{ apartment.price }}VNĐ
+                          <small>$777 / sq m</small>
                         </div>
                       </div>
                       <div class="item-badges">
@@ -186,15 +184,6 @@
                 </div>
               </div>
             </div>
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>
