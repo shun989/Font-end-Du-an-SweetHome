@@ -57,4 +57,13 @@ export class AuthService {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
+
+  changePassword(data:any){
+    let token = localStorage.getItem('token');
+    let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
+    let httpOptions = {
+      headers: headers_object
+    };
+    return this.http.post<any>(environment.ApiUrl+ '/change-password',data,httpOptions);
+  }
 }

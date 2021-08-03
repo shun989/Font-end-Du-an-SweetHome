@@ -4,7 +4,6 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import {RouterModule, Routes} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -22,7 +21,6 @@ const routes: Routes = [
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,
