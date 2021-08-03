@@ -11,8 +11,8 @@
       <div class="page-header">
         <h1>Please sign in or register</h1>
       </div>
-      <div  *ngIf="message" class="alert alert-warning">
-        {{ message }}
+      <div  *ngIf="errRegister" class="alert alert-warning">
+        <span>{{ errRegister }}</span>
       </div>
     </div>
   </div>
@@ -97,10 +97,6 @@
                     </div>
                   </ng-container>
                 </div>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" id="terms">
-                <label for="terms">By registering I accept our Terms of Use and Privacy.</label>
               </div>
               <button type="submit" class="btn btn-primary btn-lg" (click)="submitRegister()">Register</button>
             </form>

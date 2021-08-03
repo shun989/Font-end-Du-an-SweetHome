@@ -28,7 +28,8 @@ a:hover {
   display: inline-block;
   margin: 0 auto;
   /*width: 150px;*/
-  height: 150px;
+  border-radius: 50%;
+  height: 200px;
   position: relative;
   background-color: #eee;
   font-family: Arial, Helvetica, sans-serif;
@@ -56,7 +57,7 @@ a:hover {
   font-size: 10px;
   /*margin-left: 95px;*/
   margin-left: 68%;
-  margin-top: 26%;
+  margin-top: 5%;
 }
 
 #imgChange input[type="file"] {
