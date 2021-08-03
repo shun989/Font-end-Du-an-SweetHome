@@ -9,16 +9,13 @@
       <div class="page-header bordered mb0">
         <div class="row">
           <div class="col-md-8"><a href="#" class="btn-return" title="Back"><i class="fa fa-angle-left"></i></a>
-            <h1>{{ apartment[0].name }} <span class="label label-bordered" *ngIf="apartment[0].status == 1">For Rent </span>
+            <h1>{{ apartment[0].name }} <span class="label label-bordered"
+                                              *ngIf="apartment[0].status == 1">For Rent </span>
               <span class="label label-bordered" *ngIf="apartment[0].status == 2">Rented </span>
               <span class="label label-bordered" *ngIf="apartment[0].status == 3">Upgrading </span>
               <small><i class="fa fa-map-marker"></i> {{ apartment[0].address }}</small></h1>
           </div>
-          <div class="col-md-4">
-            <div class="price">{{ apartment[0].price }} &#8363;
-              <!--              <small>$900/sq ft</small>-->
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -90,9 +87,9 @@
                   <!--                  <li><span>3</span> Rooms </li>-->
                   <li><span>{{ apartment[0].bedroom }}</span> Bedrooms</li>
                   <li><span>{{ apartment[0].bathroom }}</span> Bathrooms</li>
-                  <li *ngIf="apartment[0].status == 1"><span >For Rent</span> Status</li>
-                  <li *ngIf="apartment[0].status == 2"><span >Rented</span> Status</li>
-                  <li *ngIf="apartment[0].status == 3"><span >Upgrading</span> Status</li>
+                  <li *ngIf="apartment[0].status == 1"><span>For Rent</span> Status</li>
+                  <li *ngIf="apartment[0].status == 2"><span>Rented</span> Status</li>
+                  <li *ngIf="apartment[0].status == 3"><span>Upgrading</span> Status</li>
                 </ul>
                 <div class="item-description">
                   <h3 class="headline">Property {{ apartment[0].description }}</h3>
@@ -200,25 +197,58 @@
                             <td>{{ apartment[0].ward }}</td>
                           </tr>
                         </table>
+                        <hr>
+                        <form [formGroup]="unavailabilityForm" (ngSubmit)="submit()">
+                            <div class="price" ><strong style="color: orangered">  {{ apartment[0].price }} &#8363; </strong>/ <small>ngày</small>
+                              <!--              <small>$900/sq ft</small>-->
+                            </div>
+
+                          <div class="item item-1" fxFlex="50%" fxFlexOrder="1">
+                            <mat-form-field>
+                              <label><strong>Start Date</strong></label>
+                              <input matInput [matDatepicker]="picker1" type="text" formControlName="startDate">
+                              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                              <mat-datepicker #picker1></mat-datepicker>
+                              <mat-error *ngIf="startDate && startDate.invalid">{{getErrorMessageStartDate()}}</mat-error>
+                            </mat-form-field>
+                          </div>
+                          <div class="item item-2" fxFlex="50%" fxFlexOrder="2">
+                            <mat-form-field>
+                              <label><strong> End Date</strong></label>
+                              <input matInput [min]="unavailabilityForm.controls.startDate.value"
+                                     [matDatepicker]="picker2" type="text"
+                                     formControlName="endDate">
+                              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                              <mat-datepicker #picker2></mat-datepicker>
+                              <mat-error *ngIf="endDate && endDate.invalid">{{getErrorMessageEndDate()}}</mat-error>
+                            </mat-form-field>
+                          </div>
+                          <p>{{ unavailabilityForm.value | json }}</p>
+                          <hr>
+                          <label><strong> Total days:</strong></label>
+                          <p><strong> Total price:</strong></p>
+                          <button  class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="card shadow">
-                  <h5 class="subheadline mt-0  mb-0">For Sale by Agent</h5>
+                  <h4 class="subheadline mt-0  mb-0">For Sale by Agent</h4>
                   <div class="media">
                     <div class="media-left"><a href="agent.html"> <img class="media-object rounded-circle"
                                                                        src="assets/img/demo/profile.jpg" width="64"
                                                                        height="64" alt=""> </a></div>
                     <div class="media-body">
-                      <h4 class="media-heading"><a routerLink="../../list-of-customer/{{ apartment[0].user_id }}">{{ apartment[0].user }}</a></h4>
+                      <h4 class="media-heading"><a
+                        routerLink="../../list-of-customer/{{ apartment[0].user_id }}">{{ apartment[0].user }}</a></h4>
                       <p><a href="tel:01502392905"><i class="fa fa-phone" aria-hidden="true"></i>
                         Call: {{ apartment[0].phone }}</a></p>
                       <p><a href="agent.html" class="btn btn-sm btn-light">View Profile</a></p>
                     </div>
                   </div>
-                  <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Request
-                    Details</a></div>
+
+                </div>
                 <div class="btn-group btn-group-justified" role="group">
                   <a href="#" class="btn btn-light" data-toggle="tooltip" title="Save to favorites">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -273,21 +303,12 @@
             <input type="tel" class="form-control" placeholder="Your Telephone">
           </div>
           <div class="form-group">
-          <mat-form-field appearance="outline">
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-              <input matStartDate formControlName="start" placeholder="Start date">
-              <input matEndDate formControlName="end" placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
+            <!--            <input type="date" formControlName="start" placeholder="Start date">-->
+            <!--            <input type="date" formControlName="end" placeholder="End date">-->
 
-            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-          </mat-form-field>
-
-          <p>Selected range: {{range.value | json}}</p>
           </div>
+
+
         </form>
       </div>
       <div class="modal-footer">

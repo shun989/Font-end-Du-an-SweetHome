@@ -28,7 +28,7 @@
                     <li><a href="tel:01502392905"><i class="fa fa-phone fa-fw" aria-hidden="true"></i> Call: {{ apartments[0].phone }}</a></li>
                     <li><a href="#"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> {{ apartments[0].email }}</a></li>
                   </ul>
-                  <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Contact John</a> </div>
+                  <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Contact {{ apartments[0].user }} </a> </div>
               </div>
             </div>
           </div>
@@ -39,28 +39,28 @@
 <!--            <p>This is about the Agent section, agent himself can add this from his edit profile section. They can write about their experience in RealEstate market.</p>-->
             <hr/>
             <div class="lead">Recent properties by {{ apartments[0].user }}</div>
-            <div class="sorting">
-              <div class="row justify-content-between">
-                <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4">
-                  <div class="form-group">
-                    <select class="form-control ui-select">
-                      <option selected="selected">Most recent</option>
-                      <option>Most reduced</option>
-                      <option>Most popular</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
-                  <div class="btn-group float-right" role="group"> <a href="property_grid.html" class="btn btn-light"><i class="fa fa-th"></i></a> <a href="property_listing.html" class="btn btn-light active"><i class="fa fa-bars"></i></a> </div>
-                </div>
-              </div>
-            </div>
+<!--            <div class="sorting">-->
+<!--              <div class="row justify-content-between">-->
+<!--                <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4">-->
+<!--                  <div class="form-group">-->
+<!--                    <select class="form-control ui-select">-->
+<!--                      <option selected="selected">Most recent</option>-->
+<!--                      <option>Most reduced</option>-->
+<!--                      <option>Most popular</option>-->
+<!--                    </select>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">-->
+<!--                  <div class="btn-group float-right" role="group"> <a href="property_grid.html" class="btn btn-light"><i class="fa fa-th"></i></a> <a href="property_listing.html" class="btn btn-light active"><i class="fa fa-bars"></i></a> </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
             <div class="clearfix"></div>
             <div class="item-listing list">
               <div class="item" *ngFor="let apartment of apartments">
                 <div class="row">
                   <div class="col-lg-5">
-                    <div class="item-image"> <a href="property_single.html"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
+                    <div class="item-image"> <a routerLink="../../{{apartment.id}}/detail"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
                         <div class="item-badges">
 <!--                          <div class="item-badge-left">Sponsored</div>-->
                           <div class="item-badge-left" *ngIf="apartment.status == 1">For Rent</div>
