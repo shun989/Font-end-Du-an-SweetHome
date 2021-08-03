@@ -4,7 +4,7 @@ import {MasterComponent} from "./auth/component/layout/master/master.component";
 import {HomeMasterComponent} from "./home-page/component/layout/home-master/home-master.component";
 import {AuthGuard} from "./auth/service/auth.guard";
 import {ActionMasterComponent} from "./home-action/component/layout/action-master/action-master.component";
-import {ChangePasswordComponent} from "./auth/component/change-password/change-password.component";
+import {ChangePasswordComponent} from "./home-action/component/change-password/change-password.component";
 
 const routes: Routes = [
   {
