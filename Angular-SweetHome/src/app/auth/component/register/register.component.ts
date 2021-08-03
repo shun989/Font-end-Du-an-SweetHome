@@ -96,7 +96,6 @@ export class RegisterComponent implements OnInit {
   }
 
   submitRegister(): void {
-
     this.userModelObj.name = this.formRegister.value.name;
     this.userModelObj.password = this.formRegister.value.password;
     this.userModelObj.phone = this.formRegister.value.phone;

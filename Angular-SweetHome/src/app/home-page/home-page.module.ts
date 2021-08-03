@@ -13,6 +13,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material/core";
+import {AuthGuard} from "../auth/service/auth.guard";
+import {MatInputModule} from "@angular/material/input";
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -23,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: ':id/detail',
-    component: DetailComponent
+    component: DetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'all-apartments',
@@ -66,7 +71,11 @@ const routes: Routes = [
     MatDatepickerModule,
     ReactiveFormsModule,
     MatNativeDateModule,
+    MatInputModule,
     // MatMomentDateModule,
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ]
 })
 

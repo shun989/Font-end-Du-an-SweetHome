@@ -3,29 +3,29 @@
     var progressBar = $('.progressBar'), bar = $('.progressBar .bar'), percent = $('.progressBar .percent');
 
     $('#image_upload_form').ajaxForm({
-      beforeSend: function() {
+      beforeSend: function () {
         progressBar.fadeIn();
         var percentVal = '0%';
         bar.width(percentVal)
         percent.html(percentVal);
       },
-      uploadProgress: function(event, position, total, percentComplete) {
+      uploadProgress: function (event, position, total, percentComplete) {
         var percentVal = percentComplete + '%';
         bar.width(percentVal)
         percent.html(percentVal);
       },
-      success: function(html, statusText, xhr, $form) {
+      success: function (html, statusText, xhr, $form) {
         obj = $.parseJSON(html);
-        if(obj.status){
+        if (obj.status) {
           var percentVal = '100%';
           bar.width(percentVal)
           percent.html(percentVal);
-          $("#imgArea>img").prop('src',obj.image_medium);
-        }else{
+          $("#imgArea>img").prop('src', obj.image_medium);
+        } else {
           alert(obj.error);
         }
       },
-      complete: function(xhr) {
+      complete: function (xhr) {
         progressBar.fadeOut();
       }
     }).submit();
@@ -37,10 +37,9 @@
   <div class="page-header bordered">
     <h1>My profile <small>Manage your public profile</small></h1>
   </div>
-  <div class="form-custom" style="width: 100%">
-    <form>
-      <h3 class="subheadline">Basic Information</h3>
-      <input type="text" name="user_id" hidden>
+  <form>
+    <h3 class="subheadline">Basic Information</h3>
+    <div class="form-custom" style="width: 100%">
       <div class="mx-5">
         <div class="row">
           <div class="form-group">
@@ -68,29 +67,26 @@
           <input type="text" class="form-control form-control-lg">
         </div>
       </div>
-      <hr>
-      <div class="form-group action">
-        <button type="submit" class="btn btn-lg btn-primary">Update Profile</button>
-      </div>
-    </form>
-
-    <div class="mt-5">
-      <form enctype="multipart/form-data" id="image_upload_form">
-        <input type="text" name="user_id" hidden>
-        <div id="imgArea"><img src="assets/img/demo/profile2.jpg" class="avatar-input">
+      <div class="mt-2">
+        <div id="imgArea"><img [src]="url ? url :'assets/img/demo/profile2.jpg'" class="avatar-input">
           <div class="progressBar">
             <div class="bar"></div>
             <div class="percent">0%</div>
           </div>
-          <div id="imgChange"><button class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
-            <input type="file" accept="image/*" name="image_upload_file" id="image_upload_file">
+          <div id="imgChange">
+            <button class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+            <input type="file" accept="image/*" id="avatar" (change)="onSelectFile($event)"
+                   class="select-profile-picture" formControlName="image">
           </div>
         </div>
-      </form>
-      <!--          <img style="border: 2px" src="assets/img/demo/profile2.jpg" class="avatar-input">-->
-<!--      <input type="image" style="border: 2px" src="assets/img/demo/profile2.jpg" class="avatar-input">-->
-<!--      <div style="display: grid"><input type="file"></div>-->
+      </div>
     </div>
-  </div>
+    <input type="text" name="user_id" hidden>
+    <hr>
+    <div class="form-group action">
+      <button type="submit" class="btn btn-lg btn-primary">Update Profile</button>
+      <button type="button" class="btn btn-lg btn-default mx-3" (click)="clearFile()">Cancel</button>
+    </div>
+  </form>
 </div>
 
