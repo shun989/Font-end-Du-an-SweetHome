@@ -11,6 +11,7 @@ import { PaymentsComponent } from './component/payments/payments.component';
 import { AccountComponent } from './component/account/account.component';
 
 const routes: Routes = [
+
   {
     path: 'add-apartment',
     component: AddApartmentComponent
