@@ -4,6 +4,7 @@ import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class ApartmentActionService {
   };
   message: string | undefined;
   constructor(private http: HttpClient,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private route: Router) { }
 
 
   addApartment(data: any) {
@@ -36,12 +38,12 @@ export class ApartmentActionService {
     let httpOptions = {
       headers: headers_object
     };
-
     this.http.post<any>(this.apartmentUrl + '/add', apartment, httpOptions).subscribe(
       (res) =>{
         this.message = res.message
         this.toastr.success('Success', this.message)
         console.log(res)
+        this.route.navigate(['action/user-list'])
       }, error=>{
         this.toastr.error('Error', this.message)
       console.log(error)

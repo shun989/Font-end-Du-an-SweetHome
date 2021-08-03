@@ -132,6 +132,6 @@ export class AddApartmentComponent implements OnInit {
     formData.append('bedroomNumber', apartmentData.bedroomNumber);
     formData.append('ward_id', apartmentData.ward_id);
     this.apartmentAcService.createApartment(formData);
-    this.route.navigate(['action/user-list'])
+    // this.route.navigate(['action/user-list'])
   }
 }
