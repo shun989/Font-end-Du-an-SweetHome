@@ -11,6 +11,7 @@ import {Booking} from "../../../shared/model/booking";
 import {User} from "../../../shared/model/user";
 import {Apartment} from "../../../shared/model/apartment";
 import {now} from "moment";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
@@ -20,7 +21,7 @@ import {now} from "moment";
 })
 
 export class DetailComponent implements OnInit {
-  apartment: any;
+  apartment: any = [];
   user: any;
 
   category: any;
@@ -42,6 +43,7 @@ export class DetailComponent implements OnInit {
               private toastr: ToastrService,
               private formBuilder: FormBuilder,
               private bookingService: BookingService,
+              private datePipe: DatePipe
   ) {
     this.unavailabilityForm = this.formBuilder.group({
       startDate: [this.unavailability.startDate],
@@ -80,11 +82,17 @@ export class DetailComponent implements OnInit {
     console.log(this.user)
   }
 
+  transformDate(date: any): any {
+    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
+
   submit(booking: Booking) {
     booking.total_price = this.total_price;
     booking.apartment_id = this.apartment[0].id;
     this.user = JSON.parse(<string>(localStorage.getItem('user')));
     booking.user_id = this.user.id;
+    booking.startDate = this.transformDate(booking.startDate);
+    booking.endDate = this.transformDate(booking.endDate);
     console.log(booking)
     // booking.apartment_id = apartment[0].id;
     this.bookingService.requestBooking(booking).subscribe(

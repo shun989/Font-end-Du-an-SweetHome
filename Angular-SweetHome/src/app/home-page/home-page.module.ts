@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HomePageComponent} from "./component/home-page/home-page.component";
 import { DetailComponent } from './component/detail/detail.component';
@@ -75,7 +75,8 @@ const routes: Routes = [
     // MatMomentDateModule,
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    DatePipe
   ]
 })
 

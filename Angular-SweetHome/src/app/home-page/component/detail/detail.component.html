@@ -4,16 +4,16 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item"><a href="#">Property for sale</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ apartment[0].name }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ apartment[0]?.name }}</li>
       </ol>
       <div class="page-header bordered mb0">
         <div class="row">
           <div class="col-md-8"><a href="#" class="btn-return" title="Back"><i class="fa fa-angle-left"></i></a>
-            <h1>{{ apartment[0].name }} <span class="label label-bordered"
-                                              *ngIf="apartment[0].status == 1">For Rent </span>
-              <span class="label label-bordered" *ngIf="apartment[0].status == 2">Rented </span>
-              <span class="label label-bordered" *ngIf="apartment[0].status == 3">Upgrading </span>
-              <small><i class="fa fa-map-marker"></i> {{ apartment[0].address }}</small></h1>
+            <h1>{{ apartment[0]?.name }} <span class="label label-bordered"
+                                              *ngIf="apartment[0]?.status == 1">For Rent </span>
+              <span class="label label-bordered" *ngIf="apartment[0]?.status == 2">Rented </span>
+              <span class="label label-bordered" *ngIf="apartment[0]?.status == 3">Upgrading </span>
+              <small><i class="fa fa-map-marker"></i> {{ apartment[0]?.address }}</small></h1>
           </div>
 
         </div>
@@ -86,14 +86,14 @@
                 <ul class="item-features">
                   <!--                  <li><span>540</span> sq m </li>-->
                   <!--                  <li><span>3</span> Rooms </li>-->
-                  <li><span>{{ apartment[0].bedroom }}</span> Bedrooms</li>
-                  <li><span>{{ apartment[0].bathroom }}</span> Bathrooms</li>
-                  <li *ngIf="apartment[0].status == 1"><span>For Rent</span> Status</li>
-                  <li *ngIf="apartment[0].status == 2"><span>Rented</span> Status</li>
-                  <li *ngIf="apartment[0].status == 3"><span>Upgrading</span> Status</li>
+                  <li><span>{{ apartment[0]?.bedroom }}</span> Bedrooms</li>
+                  <li><span>{{ apartment[0]?.bathroom }}</span> Bathrooms</li>
+                  <li *ngIf="apartment[0]?.status == 1"><span>For Rent</span> Status</li>
+                  <li *ngIf="apartment[0]?.status == 2"><span>Rented</span> Status</li>
+                  <li *ngIf="apartment[0]?.status == 3"><span>Upgrading</span> Status</li>
                 </ul>
                 <div class="item-description">
-                  <h3 class="headline">Property {{ apartment[0].description }}</h3>
+                  <h3 class="headline">Property {{ apartment[0]?.description }}</h3>
                   <p><strong>Hall</strong> <strong>entrance</strong> UPVC double glazed door to the front, laminate
                     flooring, storage cupboard, loft access and under floor heating.</p>
                   <p><strong>Lounge/diner/kitchen</strong> <strong>24' 6" x 16' 0" (7.47m x 4.88m)</strong> Spacious L
@@ -179,28 +179,28 @@
                         <table class="table v1">
                           <tr>
                             <td>Bedrooms</td>
-                            <td>{{ apartment[0].bedroom }}</td>
+                            <td>{{ apartment[0]?.bedroom }}</td>
                           </tr>
                           <tr>
                             <td>Bathrooms</td>
-                            <td>{{ apartment[0].bathroom }}</td>
+                            <td>{{ apartment[0]?.bathroom }}</td>
                           </tr>
                           <tr>
                             <td>Province</td>
-                            <td>{{ apartment[0].province }}</td>
+                            <td>{{ apartment[0]?.province }}</td>
                           </tr>
                           <tr>
                             <td>District</td>
-                            <td>{{ apartment[0].district }}</td>
+                            <td>{{ apartment[0]?.district }}</td>
                           </tr>
                           <tr>
                             <td>Ward</td>
-                            <td>{{ apartment[0].ward }}</td>
+                            <td>{{ apartment[0]?.ward }}</td>
                           </tr>
                         </table>
                         <hr>
                         <form [formGroup]="unavailabilityForm" (ngSubmit)="submit(unavailabilityForm.value)">
-                            <div class="price" ><strong style="color: orangered">  {{ apartment[0].price }} &#8363; </strong>/ <small>ngày</small>
+                            <div class="price" ><strong style="color: orangered">  {{ apartment[0]?.price }} &#8363; </strong>/ <small>ngày</small>
                               <!--              <small>$900/sq ft</small>-->
                             </div>
 
@@ -241,9 +241,9 @@
                                                                        height="64" alt=""> </a></div>
                     <div class="media-body">
                       <h4 class="media-heading"><a
-                        routerLink="../../list-of-customer/{{ apartment[0].user_id }}">{{ apartment[0].user }}</a></h4>
+                        routerLink="../../list-of-customer/{{ apartment[0]?.user_id }}">{{ apartment[0]?.user }}</a></h4>
                       <p><a href="tel:01502392905"><i class="fa fa-phone" aria-hidden="true"></i>
-                        Call: {{ apartment[0].phone }}</a></p>
+                        Call: {{ apartment[0]?.phone }}</a></p>
                       <p><a href="agent.html" class="btn btn-sm btn-light">View Profile</a></p>
                     </div>
                   </div>
@@ -282,8 +282,8 @@
           <div class="media-left"><img src="assets/img/demo/property/thumb/1.jpg" width="60" class="img-rounded mt5"
                                        alt=""></div>
           <div class="media-body">
-            <h4 class="media-heading">Request details for {{ apartment[0].name }}</h4>
-            {{ apartment[0].address }}</div>
+            <h4 class="media-heading">Request details for {{ apartment[0]?.name }}</h4>
+            {{ apartment[0]?.address }}</div>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
@@ -328,8 +328,8 @@
           <div class="media-left"><img src="assets/img/demo/property/thumb/1.jpg" width="60" class="img-rounded mt5"
                                        alt=""></div>
           <div class="media-body">
-            <h4 class="media-heading">Email friend about {{ apartment[0].name }}</h4>
-            {{ apartment[0].address }} </div>
+            <h4 class="media-heading">Email friend about {{ apartment[0]?.name }}</h4>
+            {{ apartment[0]?.address }} </div>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
@@ -370,8 +370,8 @@
         <div class="media">
           <div class="media-left"><i class="fa fa-3x fa-exclamation-circle" aria-hidden="true"></i></div>
           <div class="media-body">
-            <h4 class="media-heading">Report Listing for {{ apartment[0].name }}</h4>
-            {{ apartment[0].address }}
+            <h4 class="media-heading">Report Listing for {{ apartment[0]?.name }}</h4>
+            {{ apartment[0]?.address }}
           </div>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
