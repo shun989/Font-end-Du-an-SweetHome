@@ -21,6 +21,6 @@ export class BookingService {
     let httpOptions = {
       headers: headers_object
     };
-    return this.http.post<any>(environment.ApiUrl + '/booking/create', booking);
+    return this.http.post<any>(environment.ApiUrl + '/booking/create', booking, httpOptions);
   }
 }
