@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApartmentService} from "../../../service/apartment.service";
 import {FormBuilder, FormArray, FormGroup, Validators} from "@angular/forms";
@@ -17,6 +17,9 @@ export class DetailComponent implements OnInit {
   user: any;
   unavailabilityForm!: FormGroup;
   unavailability = {startDate: '', endDate: ''}
+  loading: boolean = false;
+  url = '';
+  @ViewChild('fileInput') fileInput !: ElementRef;
 
   constructor(private route: ActivatedRoute,
               private apartmentService: ApartmentService,
@@ -80,4 +83,39 @@ export class DetailComponent implements OnInit {
   get endDate() {
     return this.unavailabilityForm?.get('endDate')
   }
+
+  onSelectFile(event: Event) {
+    // @ts-ignore
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      // @ts-ignore
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      // @ts-ignore
+      $.ajax({
+        success: function(response: any){
+          if(response != 0){
+            // Show image preview
+            // @ts-ignore
+            $('#preview').append("<img src='"+response+"' width='100' height='100' style='display: inline-block;'>");
+          }else{
+            alert('file not uploaded');
+          }
+        }
+      });
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        // @ts-ignore
+        this.url = event.target.result;
+
+      }
+    }
+  }
+
+  clearFile() {
+    // @ts-ignore
+    this.form.get('file').setValue(null);
+    this.fileInput.nativeElement.value = '';
+  }
+
+
 }

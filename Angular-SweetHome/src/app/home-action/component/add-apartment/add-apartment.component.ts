@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ApartmentActionService} from "../../service/apartment-action.service";
 import {HttpClient} from "@angular/common/http";
@@ -13,6 +13,9 @@ import {AuthService} from "../../../auth/service/auth.service";
   styleUrls: ['./add-apartment.component.css']
 })
 export class AddApartmentComponent implements OnInit {
+  loading: boolean = false;
+  url = '';
+  @ViewChild('fileInput') fileInput !: ElementRef;
   user: any;
   jpg: any | undefined;
   png: any | undefined;
@@ -109,12 +112,12 @@ export class AddApartmentComponent implements OnInit {
     })
   }
 
-  onFileSelect(event: any) {
-    if (event != null && event.target.files.length > 0) {
-      this.jpg = event.target.files[0];
-      this.png = event.target.files[0];
-    }
-  }
+  // onFileSelect(event: any) {
+  //   if (event != null && event.target.files.length > 0) {
+  //     this.jpg = event.target.files[0];
+  //     this.png = event.target.files[0];
+  //   }
+  // }
   onSubmit(): void {
     let apartmentData = this.formCreate?.value
     apartmentData.photo = this.jpg || this.png
@@ -133,5 +136,24 @@ export class AddApartmentComponent implements OnInit {
     formData.append('ward_id', apartmentData.ward_id);
     this.apartmentAcService.createApartment(formData);
     // this.route.navigate(['action/user-list'])
+  }
+
+  onFileSelect(event: Event) {
+    // @ts-ignore
+    if (event.target.files && event.target.files[0]) {
+      // @ts-ignore
+      this.jpg = event.target.files[0];
+      // @ts-ignore
+      this.png = event.target.files[0];
+      var reader = new FileReader();
+
+      // @ts-ignore
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        // @ts-ignore
+        this.url = event.target.result;
+      }
+    }
   }
 }

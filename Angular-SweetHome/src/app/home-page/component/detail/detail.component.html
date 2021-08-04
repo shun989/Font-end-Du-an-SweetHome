@@ -8,14 +8,19 @@
       </ol>
       <div class="page-header bordered mb0">
         <div class="row">
-          <div class="col-md-8"><a href="#" class="btn-return" title="Back"><i class="fa fa-angle-left"></i></a>
-            <h1>{{ apartment[0].name }} <span class="label label-bordered"
-                                              *ngIf="apartment[0].status == 1">For Rent </span>
-              <span class="label label-bordered" *ngIf="apartment[0].status == 2">Rented </span>
-              <span class="label label-bordered" *ngIf="apartment[0].status == 3">Upgrading </span>
-              <small><i class="fa fa-map-marker"></i> {{ apartment[0].address }}</small></h1>
+          <div class="set-upload-btn">
+            <div class="col-md-8"><a routerLink="../" class="btn-return" title="Back"><i
+              class="fa fa-angle-left"></i></a>
+              <h1>{{ apartment[0].name }} <span class="label label-bordered"
+                                                *ngIf="apartment[0].status == 1">For Rent </span>
+                <span class="label label-bordered" *ngIf="apartment[0].status == 2">Rented </span>
+                <span class="label label-bordered" *ngIf="apartment[0].status == 3">Upgrading </span>
+                <small><i class="fa fa-map-marker"></i> {{ apartment[0].address }}</small></h1>
+            </div>
+            <div class="mt-4 mr-1">
+            <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#uploadModal">Upload Image</button>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -33,7 +38,7 @@
                   <div class="swiper-wrapper lazyload">
                     <div class="swiper-slide">
                       <div id="carouselExampleTouch" class="carousel slide" data-mdb-touch="false">
-<!--                        //image-->
+                        <!--                        //image-->
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <a href="assets/img/demo/property/1.jpg" itemprop="contentUrl" data-size="2000x1414">
@@ -200,9 +205,9 @@
                         </table>
                         <hr>
                         <form [formGroup]="unavailabilityForm" (ngSubmit)="submit()">
-                            <div class="price" ><strong style="color: orangered">  {{ apartment[0].price }} &#8363; </strong>/ <small>ngày</small>
-                              <!--              <small>$900/sq ft</small>-->
-                            </div>
+                          <div class="price"><strong style="color: orangered">
+                            {{ apartment[0].price |currency:'VNĐ ':true }}</strong>/ <small>Ngày</small>
+                          </div>
 
                           <div class="item item-1" fxFlex="50%" fxFlexOrder="1">
                             <mat-form-field>
@@ -210,7 +215,8 @@
                               <input matInput [matDatepicker]="picker1" type="text" formControlName="startDate">
                               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                               <mat-datepicker #picker1></mat-datepicker>
-                              <mat-error *ngIf="startDate && startDate.invalid">{{getErrorMessageStartDate()}}</mat-error>
+                              <mat-error
+                                *ngIf="startDate && startDate.invalid">{{getErrorMessageStartDate()}}</mat-error>
                             </mat-form-field>
                           </div>
                           <div class="item item-2" fxFlex="50%" fxFlexOrder="2">
@@ -228,7 +234,7 @@
                           <hr>
                           <label><strong> Total days:</strong></label>
                           <p><strong> Total price:</strong></p>
-                          <button  class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
+                          <button class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
                         </form>
                       </div>
                     </div>
@@ -416,5 +422,40 @@
         <button type="button" class="btn btn-primary">Report Error</button>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- Modal  upload image-->
+<div id="uploadModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Image upload form</h4>
+        <button type="button" class="close mr-0" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Form -->
+        <form method='post' action='' enctype="multipart/form-data">
+          <div class="form-group">
+            <label>Apartment Name</label>
+            <input class="form-control" type="text" value="{{apartment.id}}" readonly>{{apartment.name}}
+          </div>
+          Select file : <input type='file' name='file' id='file' class='form-control'
+                               (change)="onSelectFile($event)" multiple><br>
+          <input type='button' class='btn btn-info' value='Upload' id='btn_upload'>
+<!--          <button type="button" class="btn btn-lg btn-default mx-3" (click)="clearFile()">Cancel</button>-->
+        </form>
+
+        <!-- Preview-->
+        <div id='preview' >
+          <img [hidden]="!url" [src]="url[0] ? url :''" class="image-set mt-2 mx-1" multiple>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

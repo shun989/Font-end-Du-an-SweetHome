@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe} from '@angular/core';
 import {Apartment} from "../../../shared/model/apartment";
 import {ApartmentService} from "../../../service/apartment.service";
 
@@ -7,8 +7,11 @@ import {ApartmentService} from "../../../service/apartment.service";
   templateUrl: './page-list.component.html',
   styleUrls: ['./page-list.component.css']
 })
+
 export class PageListComponent implements OnInit {
   apartments: Apartment[] = [];
+  // @ts-ignore
+  @Pipe({name:'split'})
 
   constructor(private apartmentService: ApartmentService) {
   }

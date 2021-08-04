@@ -8,3 +8,13 @@
   padding-left: 15px;
 }
 
+.set-upload-btn{
+  display: flex!important;
+  justify-content: space-between!important;
+}
+
+.image-set{
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}

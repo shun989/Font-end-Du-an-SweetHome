@@ -129,11 +129,14 @@
     </div>
     <div class="form-group">
       <h3 class="subheadline">Upload Photos</h3>
-      <div class="ui-dropzone">
+      <div class="">
         <div class="icon"></div>
         <div>Drag and drop images or click to upload</div>
         <input type="file" class="form-control form-control-lg"
-               id="customFile" name="myFile" formControlName="photo" (change)="onFileSelect($event)" multiple>
+               id="customFile" name="myFile" formControlName="photo" (change)="onFileSelect($event)">
+      </div>
+      <div>
+        <img [hidden]="!url" [src]="url ? url :''" class="image-set" >
       </div>
     </div>
     <hr>
