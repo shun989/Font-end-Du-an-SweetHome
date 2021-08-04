@@ -11,6 +11,9 @@
       <div class="page-header">
         <h1>Please sign in or register</h1>
       </div>
+      <div  *ngIf="errRegister" class="alert alert-warning">
+        <span>{{ errRegister }}</span>
+      </div>
     </div>
   </div>
 </div>
@@ -20,7 +23,7 @@
       <div class="col col-md-6  col-lg-5 col-xl-4">
         <ul class="nav nav-tabs tab-lg" role="tablist">
           <li role="presentation" class="nav-item"><a class="nav-link" routerLink="../login">Sign In</a></li>
-          <li role="presentation" class="nav-item"><a class="nav-link active">Register</a></li>
+       >>>>>>> dev   <li role="presentation" class="nav-item"><a class="nav-link active">Register</a></li>
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="login">
@@ -107,10 +110,6 @@
                   </ng-container>
                 </div>
               </div>
-              <div class="checkbox">
-                <input type="checkbox" id="terms">
-                <label for="terms">By registering I accept our Terms of Use and Privacy.</label>
-              </div>
               <button type="submit" class="btn btn-primary btn-lg" (click)="submitRegister()">Register</button>
             </form>
           </div>
@@ -119,6 +118,7 @@
       </div>
 
       <div class="col-md-6 col-lg-5 col-xl-4">
+        <div class="social-login-buttons"> <a href="#" class="btn btn-social btn-block btn-facebook"><i class="icon fa fa-facebook"></i> Continue with Facebook</a> <a href="#" class="btn btn-social btn-block btn-twitter"><i class="icon fa fa-twitter"></i> Continue with Twitter</a> <a href="#" class="btn btn-social btn-block btn-google"><i class="icon fa fa-google"></i> Continue with Google</a> </div>
         <div class="socal-login-buttons">
           <a href="#" class="btn btn-social btn-block btn-facebook"><i class="icon fa fa-facebook"></i> Continue with Facebook</a>
           <a href="#" class="btn btn-social btn-block btn-twitter"><i class="icon fa fa-twitter"></i> Continue with Twitter</a>

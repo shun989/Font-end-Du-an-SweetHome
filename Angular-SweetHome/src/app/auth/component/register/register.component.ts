@@ -14,6 +14,7 @@ import {Message} from "../../../shared/model/message";
 export class RegisterComponent implements OnInit {
   formRegister !: FormGroup;
   message: string | undefined;
+  errRegister: string|undefined;
   mess!: Message;
   userModelObj: User = new class implements User {
     address ?: string;
@@ -95,22 +96,21 @@ export class RegisterComponent implements OnInit {
   }
 
   submitRegister(): void {
-
     this.userModelObj.name = this.formRegister.value.name;
     this.userModelObj.password = this.formRegister.value.password;
     this.userModelObj.phone = this.formRegister.value.phone;
     // @ts-ignore
     this.userModelObj.password_confirmation = this.formRegister.value.confirmPassword;
     this.userModelObj.email = this.formRegister.value.email;
-    console.log(1)
     this.authService.createUser(this.userModelObj).subscribe(res => {
         this.message = res.message
         console.log(this.message)
         let ref = document.getElementById('cancel')
         ref?.click();
         this.formRegister.reset();
-        this.toastr.success('Success', 'Register Successfully!')
+        this.toastr.success('Success', this.message)
         this.router.navigate(['account/login']);
+
       },
       error => {
         this.mess = error.error

@@ -2,18 +2,14 @@ export interface Apartment {
   id: number;
   name: string;
   price: number;
-  created_at: any;
-  user: string;
-  phone: number;
-  category: string;
-  image: string;
-  status: number;
+  description: string;
   bathroom: number;
   bedroom: number;
-  description: string;
+  photo: string;
   address: string;
+  created_at: any;
+  user: string;
+  category: string;
   user_id: string;
-  ward: string;
-  district: string;
-  province: string;
+  status: number;
 }

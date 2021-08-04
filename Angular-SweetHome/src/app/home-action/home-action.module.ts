@@ -9,6 +9,8 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { NotificationsComponent } from './component/notifications/notifications.component';
 import { PaymentsComponent } from './component/payments/payments.component';
 import { AccountComponent } from './component/account/account.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
 
@@ -57,9 +59,16 @@ const routes: Routes = [
     PaymentsComponent,
     AccountComponent
   ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule,
+        FormsModule
+    ]
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-  ]
+    ReactiveFormsModule,
+
 })
 export class HomeActionModule { }

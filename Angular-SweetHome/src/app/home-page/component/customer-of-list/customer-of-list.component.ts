@@ -3,12 +3,14 @@ import {ActivatedRoute} from "@angular/router";
 import {ApartmentService} from "../../../service/apartment.service";
 import {Apartment} from "../../../shared/model/apartment";
 
+
 @Component({
   selector: 'app-customer-of-list',
   templateUrl: './customer-of-list.component.html',
   styleUrls: ['./customer-of-list.component.css']
 })
 export class CustomerOfListComponent implements OnInit {
+
   apartments: any;
 
   constructor(private route: ActivatedRoute,
