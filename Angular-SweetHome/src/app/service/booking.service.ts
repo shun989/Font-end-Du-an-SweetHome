@@ -17,12 +17,10 @@ export class BookingService {
   // @ts-ignore
   requestBooking(booking: Booking): Observable<any> {
     let token = localStorage.getItem('token');
-    let headers_object = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
     let httpOptions = {
       headers: headers_object
     };
-    return this.http.post<Booking>(environment.ApiUrl + '/booking/create', booking, httpOptions)
-      .pipe(
-      );
+    return this.http.post<any>(environment.ApiUrl + '/booking/create', booking);
   }
 }
