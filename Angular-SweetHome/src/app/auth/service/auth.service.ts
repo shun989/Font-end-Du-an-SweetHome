@@ -24,6 +24,10 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8000/api/auth/login', data);
   }
 
+  getUserInfo() {
+    return localStorage.getItem('user');
+  }
+
   changeIsLogin(isLogin:boolean){
     this.checkLogin.next(isLogin);
   }
@@ -38,14 +42,13 @@ export class AuthService {
   createUser(data: any) {
     return this.http.post<any>(environment.ApiUrl + '/auth/register', data)
       .pipe(map((res: any)=>{
-        console.log(res)
+        // console.log(res)
         return res;
       }))
   }
 
   logout(){
     let token =localStorage.getItem('token');
-    // localStorage.clear('token')
     let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
     let httpOptions = {
       headers: headers_object

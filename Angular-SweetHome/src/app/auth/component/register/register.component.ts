@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
       },
       error => {
         this.mess = error.error
-        console.log(this.mess)
+        console.log()
       })
   }
 
