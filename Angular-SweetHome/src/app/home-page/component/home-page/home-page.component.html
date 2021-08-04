@@ -107,97 +107,109 @@
 </div>
 <div id="content" class="pt0 pb0">
   <div class="feature-box centered gray">
-    <div>
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-12 col-xl-10">
-            <div class="main-title"><span>Featured Apartment </span></div>
-            <div class="main-title-description">
-              Are you looking to travel and relax? Stay tuned and discover our amazing getaways.
-            </div>
-            <div class="clearfix"></div>
-            <div class="mt50 mb50">
-              <div class="featured-gallery v2 item-listing grid">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="item item-lg">
-
-
-                      <div class="item-image" style="background-image:url(assets/img/demo/property/13.jpg);"><a routerLink="/home/show">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-12 col-xl-10">
+          <div class="main-title"><span>Featured Apartment </span></div>
+          <div class="main-title-description">
+            Are you looking to travel and relax? Stay tuned and discover our amazing getaways.
+          </div>
+          <div class="clearfix"></div>
+          <div class="mt50 mb50">
+            <div class="featured-gallery v2 item-listing grid">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="item item-lg">
+                    <!--                      <div class="item-image" style="background-image:url(assets/img/demo/property/13.jpg);">-->
+                    <div>
+                      <img src="{{'http://localhost:8000/img/' + featured[1]?.photo}}">
+                      <a routerLink="{{featured[1]?.id}}/detail">
                         <div class="item-meta">
                           <div class="item-info">
-                            <h3 class="item-title">3 bed semi-detached house</h3>
-                            <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough
-                              TS3
+                            <h3 class="item-title">{{featured[1]?.name}}</h3>
+                            <div class="item-location"><i class="fa fa-map-marker"></i>
+                              {{featured[1]?.address}}
                             </div>
                           </div>
-                          <div class="item-price">$420,000 <small>$777 / sq m</small></div>
+                          <div class="item-price">{{ featured[1]?.price |currency:' ':true }} &#8363;
+                          </div>
                         </div>
                         <div class="item-badges">
-                          <div class="item-badge-right">For Sale</div>
+                          <div class="item-badge-right">{{featured[1]?.status}}</div>
                         </div>
                       </a></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="item item-md">
+                        <!--                          <div class="item-image" style="background-image:url(assets/img/demo/property/2.jpg);">-->
+                        <div>
+                          <img src="{{'http://localhost:8000/img/' + featured[0].photo}}">
+                          <a routerLink="{{featured[0].id}}/detail">
+                            <div class="item-meta">
+                              <div class="item-info">
+                                <h3 class="item-title">{{ featured[0].name }}</h3>
+                                <div class="item-location"><i class="fa fa-map-marker"></i> {{ featured[0].address }}
+                                </div>
+                              </div>
+                              <div class="item-price">{{ featured[0].price |currency:' ':true }} &#8363;
+                                <!--                                <small>$777 / sq m</small>-->
+                              </div>
+                            </div>
+                            <div class="item-badges">
+                              <div class="item-badge-right">{{ featured[0].status }}</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="item item-md">
-                          <div class="item-image" style="background-image:url(assets/img/demo/property/2.jpg);"><a
-                            href="property_single.html">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="item item-md">
+                        <!--                          <div class="item-image" style="background-image:url(assets/img/demo/property/2.jpg);">-->
+                        <div>
+                          <img src="{{'http://localhost:8000/img/' + featured[2].photo}}">
+                          <a routerLink="{{featured[2].id}}/detail">
                             <div class="item-meta">
                               <div class="item-info">
-                                <h3 class="item-title">3 bed semi-detached house</h3>
-                                <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road,
-                                  Middlesbrough TS3
+                                <h3 class="item-title">{{ featured[2].name }}</h3>
+                                <div class="item-location"><i class="fa fa-map-marker"></i> {{ featured[2].address }}
                                 </div>
                               </div>
-                              <div class="item-price">$420,000 <small>$777 / sq m</small></div>
+                              <div class="item-price">{{ featured[2].price |currency:' ':true }} &#8363;
+                                <!--                                <small>$777 / sq m</small>-->
+                              </div>
                             </div>
                             <div class="item-badges">
-                              <div class="item-badge-right">For Sale</div>
+                              <div class="item-badge-right">{{ featured[2].status }}</div>
                             </div>
-                          </a></div>
+                          </a>
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="item item-sm">
-                          <div class="item-image" style="background-image:url(assets/img/demo/property/3.jpg);"><a
-                            href="property_single.html">
+                    <div class="col-sm-6">
+                      <div class="item item-md">
+                        <!--                          <div class="item-image" style="background-image:url(assets/img/demo/property/2.jpg);">-->
+                        <div>
+                          <img src="{{'http://localhost:8000/img/' + featured[3].photo}}">
+                          <a routerLink="{{featured[3].id}}/detail">
                             <div class="item-meta">
                               <div class="item-info">
-                                <h3 class="item-title">3 bed semi-detached house</h3>
-                                <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road,
-                                  Middlesbrough TS3
+                                <h3 class="item-title">{{ featured[3].name }}</h3>
+                                <div class="item-location"><i class="fa fa-map-marker"></i> {{ featured[3].address }}
                                 </div>
                               </div>
-                              <div class="item-price">$420,000 <small>$777 / sq m</small></div>
-                            </div>
-                            <div class="item-badges">
-                              <div class="item-badge-right">For Sale</div>
-                            </div>
-                          </a></div>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="item item-sm">
-                          <div class="item-image" style="background-image:url(assets/img/demo/property/4.jpg);"><a
-                            href="property_single.html">
-                            <div class="item-meta">
-                              <div class="item-info">
-                                <h3 class="item-title">3 bed semi-detached house</h3>
-                                <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road,
-                                  Middlesbrough TS3
-                                </div>
+                              <div class="item-price">{{ featured[3].price |currency:' ':true }} &#8363;
+                                <!--                                <small>$777 / sq m</small>-->
                               </div>
-                              <div class="item-price">$420,000 <small>$777 / sq m</small></div>
                             </div>
                             <div class="item-badges">
-                              <div class="item-badge-right">For Sale</div>
+                              <div class="item-badge-right">{{ featured[3].status }}</div>
                             </div>
-                          </a></div>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -205,8 +217,8 @@
                 </div>
               </div>
             </div>
-            <div class="text-center"><a href="#" class="btn btn-xlg btn-link">Explore More</a></div>
           </div>
+          <div class="text-center"><a href="#" class="btn btn-xlg btn-link">Explore More</a></div>
         </div>
       </div>
     </div>
@@ -220,68 +232,29 @@
               <div class="main-title"><span>Latest Properties</span></div>
               <div class="main-title-description">Check out some of our recent properties.</div>
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" *ngFor="let lasted of lasteds">
                   <div class="item">
-                    <div class="item-image"><a href="property_single.html"><img src="assets/img/demo/property/1.jpg"
-                                                                                class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price">$420,000 <small>$777 / sq m</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-left">Sponsored</div>
-                        <div class="item-badge-right">For Sale</div>
-                      </div>
-                    </a> <a href="#" class="save-item"><i class="fa fa-star"></i></a></div>
+                    <div class="item-image">
+                      <a routerLink="{{lasted.id}}/detail">
+                        <img style="width: 150px" src="{{'http://localhost:8000/img/' + lasted.photo}}"
+                             class="img-fluid" alt="">
+                        <div class="item-meta">
+                          <div class="item-price">{{ lasted.price |currency:' ':true }} &#8363;
+                            <small>{{ lasted.created_at }}</small></div>
+                        </div>
+                        <div class="item-badges">
+                          <div class="item-badge-left">{{ lasted.status }}</div>
+                        </div>
+                      </a> <a href="#" class="save-item"><i class="fa fa-star"></i></a></div>
                     <div class="item-info">
-                      <h3 class="item-title">3 bed semi-detached house</h3>
-                      <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3
+                      <h3 class="item-title">{{ lasted.name }}</h3>
+                      <div class="item-location"><i class="fa fa-map-marker">
+                      </i> {{ lasted.address }}
                       </div>
-                      <div class="item-details-i"><span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i
-                        class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i
-                        class="fa fa-bath"></i></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="item-image"><a href="property_single.html"><img src="assets/img/demo/property/2.jpg"
-                                                                                class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price">$420,000 <small>$777 / sq m</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-left">Sponsored</div>
-                        <div class="item-badge-right">For Sale</div>
-                      </div>
-                    </a> <a href="#" class="save-item"><i class="fa fa-star"></i></a></div>
-                    <div class="item-info">
-                      <h3 class="item-title">3 bed semi-detached house</h3>
-                      <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3
-                      </div>
-                      <div class="item-details-i"><span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i
-                        class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i
-                        class="fa fa-bath"></i></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="item-image"><a href="property_single.html"><img src="assets/img/demo/property/3.jpg"
-                                                                                class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price">$420,000 <small>$777 / sq m</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-left">Sponsored</div>
-                        <div class="item-badge-right">For Sale</div>
-                      </div>
-                    </a> <a href="#" class="save-item"><i class="fa fa-star"></i></a></div>
-                    <div class="item-info">
-                      <h3 class="item-title">3 bed semi-detached house</h3>
-                      <div class="item-location"><i class="fa fa-map-marker"></i> Kirkstone Road, Middlesbrough TS3
-                      </div>
-                      <div class="item-details-i"><span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i
-                        class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i
+                      <div class="item-details-i"><span class="bedrooms" data-toggle="tooltip"
+                                                        title="3 Bedrooms">{{ lasted.bedroom }} <i
+                        class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip"
+                                                            title="2 Bathrooms">{{ lasted.bathroom }} <i
                         class="fa fa-bath"></i></span></div>
                     </div>
                   </div>
@@ -294,138 +267,142 @@
     </div>
   </div>
   <div class="container">
-    <h3 class="text-center mb-5">The City</h3>
-    <div class="row row-cols-md-4" style="justify-content: center">
-      <div class="row mx-2">
-        <div class="card" style="width: 280px">
-          <img style="height: 340px"
-               src="assets/img/photo-0-1507680440802.jpg"
-               class="card-img"
-               alt="..."
-          />
-          <div class="card-img-overlay">
-            <a routerLink="./area/HN"><h5 class="card-title text-light">Hà Nội</h5></a>
-            <p class="card-text text-light">
-              2000
-            </p>
+    <div class="feature-box gray centered">
+      <h3 class="text-center mb-5">The City</h3>
+      <div class="row row-cols-md-4" style="justify-content: center">
+        <div class="row mx-2">
+          <div class="card" style="width: 280px">
+            <img style="height: 340px"
+                 src="assets/img/photo-0-1507680440802.jpg"
+                 class="card-img"
+                 alt="..."
+            />
+            <div class="card-img-overlay">
+              <a routerLink="./area/HN"><h5 class="card-title text-light">Hà Nội</h5></a>
+              <p class="card-text text-light">
+                2000
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="card" style="width: 280px">
-          <img style="height: 340px"
-               src="assets/img/tphcm.jpg"
-               class="card-img"
-               alt="..."
-          />
-          <div class="card-img-overlay text-color">
-            <h5 class="card-title">Thành phố Hồ Chí Minh</h5>
-            <p class="card-text">
-              Thành phố Hồ Chí Minh
-            </p>
+        <div class="row">
+          <div class="card" style="width: 280px">
+            <img style="height: 340px"
+                 src="assets/img/tphcm.jpg"
+                 class="card-img"
+                 alt="..."
+            />
+            <div class="card-img-overlay text-color">
+              <h5 class="card-title">Thành phố Hồ Chí Minh</h5>
+              <p class="card-text">
+                Thành phố Hồ Chí Minh
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row mx-2">
-        <div class="card" style="width: 280px">
-          <img style="height: 340px"
-               src="assets/img/da-nang-thanh-pho-dang-song-1.jpg"
-               class="card-img"
-               alt="..."
-          />
-          <div class="card-img-overlay text-color">
-            <h5 class="card-title">Đà Nẵng</h5>
-            <p class="card-text">
-              Đà Nẵng
-            </p>
+        <div class="row mx-2">
+          <div class="card" style="width: 280px">
+            <img style="height: 340px"
+                 src="assets/img/da-nang-thanh-pho-dang-song-1.jpg"
+                 class="card-img"
+                 alt="..."
+            />
+            <div class="card-img-overlay text-color">
+              <h5 class="card-title">Đà Nẵng</h5>
+              <p class="card-text">
+                Đà Nẵng
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="card" style="width: 280px">
-          <img style="height: 340px"
-               src="assets/img/gioi-thieu-ve-thanh-pho-hue-c.jpg"
-               class="card-img"
-               alt="..."
-          />
-          <div class="card-img-overlay text-color">
-            <h5 class="card-title">Huế</h5>
-            <p class="card-text">
-              Huế
-            </p>
+        <div class="row">
+          <div class="card" style="width: 280px">
+            <img style="height: 340px"
+                 src="assets/img/gioi-thieu-ve-thanh-pho-hue-c.jpg"
+                 class="card-img"
+                 alt="..."
+            />
+            <div class="card-img-overlay text-color">
+              <h5 class="card-title">Huế</h5>
+              <p class="card-text">
+                Huế
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="container">
-    <h3 class="text-center mb-5">The Agents</h3>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card" style="height: 450px">
-          <img
-            src="https://upanh123.com/wp-content/uploads/2020/12/anh-dai-dien-ngau7-2.jpg"
-            class="card-img-top"
-            style="height: 225px"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a longer card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-            </p>
+    <div class="feature-box gray centered">
+      <h3 class="text-center mb-5">The Agents</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card" style="height: 450px">
+            <img
+              src="https://upanh123.com/wp-content/uploads/2020/12/anh-dai-dien-ngau7-2.jpg"
+              class="card-img-top"
+              style="height: 225px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card" style="height: 450px">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU"
-            class="card-img-top"
-            style="height: 225px"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a longer card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-            </p>
+        <div class="col">
+          <div class="card" style="height: 450px">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU"
+              class="card-img-top"
+              style="height: 225px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card" style="height: 450px">
-          <img
-            src="https://anhdepfree.com/wp-content/uploads/2019/08/h%C3%ACnh-dai-dien-chibi.jpg"
-            class="card-img-top"
-            style="height: 225px"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a longer card with supporting text below as a natural lead-in to
-              additional content.
-            </p>
+        <div class="col">
+          <div class="card" style="height: 450px">
+            <img
+              src="https://anhdepfree.com/wp-content/uploads/2019/08/h%C3%ACnh-dai-dien-chibi.jpg"
+              class="card-img-top"
+              style="height: 225px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card" style="height: 450px">
-          <img
-            src="https://1.bp.blogspot.com/-JU3-O59sHNk/Xxbk8ak-hVI/AAAAAAAAth8/AuhOA7Lcd_YBmf9B5TvhZEWoRnZ7B1ZHgCLcBGAsYHQ/s1600/Avatar-con-trai%2B%25281%2529.png"
-            class="card-img-top"
-            style="height: 225px"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a longer card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-            </p>
+        <div class="col">
+          <div class="card" style="height: 450px">
+            <img
+              src="https://1.bp.blogspot.com/-JU3-O59sHNk/Xxbk8ak-hVI/AAAAAAAAth8/AuhOA7Lcd_YBmf9B5TvhZEWoRnZ7B1ZHgCLcBGAsYHQ/s1600/Avatar-con-trai%2B%25281%2529.png"
+              class="card-img-top"
+              style="height: 225px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -436,66 +413,6 @@
       <div class="container">
         <div class="row justify-content-md-center">
           <div class="col col-lg-12 col-xl-10">
-            <div class="main-title"><span>News &amp; Updates </span></div>
-            <div class="main-title-description">Stay up to date with the latest happenings.</div>
-            <div class="item-listing grid mb50">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="item-image"><a href="blog_single.html"><img src="assets/img/demo/property/7.jpg"
-                                                                            class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price"><small>26th Oct 17</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-right">Legal</div>
-                      </div>
-                    </a></div>
-                    <div class="item-info">
-                      <h3 class="item-title">Allianz invests 100m in Hines European Value Fund</h3>
-                      <div class="item-comments-count"><i class="fa fa-comment-o"></i> 3</div>
-                      <div class="item-author">By John Doe</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="item-image"><a href="blog_single.html"><img src="assets/img/demo/property/8.jpg"
-                                                                            class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price"><small>26th Oct 17</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-right">Development</div>
-                      </div>
-                    </a></div>
-                    <div class="item-info">
-                      <h3 class="item-title">Skanska signs 43.2m construction deal in Sollentuna</h3>
-                      <div class="item-comments-count"><i class="fa fa-comment-o"></i> 3</div>
-                      <div class="item-author">By John Doe</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="item-image"><a href="blog_single.html"><img src="assets/img/demo/property/9.jpg"
-                                                                            class="img-fluid" alt="">
-                      <div class="item-meta">
-                        <div class="item-price"><small>26th Oct 17</small></div>
-                      </div>
-                      <div class="item-badges">
-                        <div class="item-badge-right category">Finance</div>
-                      </div>
-                    </a></div>
-                    <div class="item-info">
-                      <h3 class="item-title">Baltic Horizon Fund plans next public offering of new units</h3>
-                      <div class="item-comments-count"><i class="fa fa-comment-o"></i> 3</div>
-                      <div class="item-author">By John Doe</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="text-center"><a href="#" class="btn btn-xlg btn-link">View All</a></div>
           </div>
         </div>
