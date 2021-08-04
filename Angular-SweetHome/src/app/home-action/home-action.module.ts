@@ -26,7 +26,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'bookmarked',
+    path: 'bookmarked/:id',
     component: BookmarkedListComponent
   },
   {
