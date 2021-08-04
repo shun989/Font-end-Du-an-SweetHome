@@ -20,7 +20,7 @@ import {now} from "moment";
 })
 
 export class DetailComponent implements OnInit {
-  apartment: Apartment[] = [];
+  apartment: any;
   user: any;
 
   category: any;
@@ -33,6 +33,7 @@ export class DetailComponent implements OnInit {
   booking!: Booking;
   start: any;
   end: any;
+  private message: any;
 
   constructor(private route: ActivatedRoute,
               private apartmentService: ApartmentService,
@@ -81,15 +82,22 @@ export class DetailComponent implements OnInit {
 
   submit(booking: Booking) {
     booking.total_price = this.total_price;
-    booking.user_id = this.user[0].id;
     booking.apartment_id = this.apartment[0].id;
-    // booking.user_id = this.user_id.id;
+    this.user = JSON.parse(<string>(localStorage.getItem('user')));
+    booking.user_id = this.user.id;
     console.log(booking)
     // booking.apartment_id = apartment[0].id;
-    this.bookingService.requestBooking(booking).subscribe((res) => {
-      console.log(res)
-      this.toastr.success('Success', 'Booking successfully')
-    })
+    this.bookingService.requestBooking(booking).subscribe(
+      (res) =>{
+        this.message = res.message
+        this.toastr.success('Success', this.message)
+        console.log(res)
+        this.router.navigate(['./all-apartments'])
+      }, error=>{
+        this.toastr.error('Error', this.message)
+        console.log(error)
+      }
+    );
   }
 
   getById(id: number) {

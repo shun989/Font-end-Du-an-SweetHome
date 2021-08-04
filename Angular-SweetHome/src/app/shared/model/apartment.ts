@@ -12,4 +12,8 @@ export interface Apartment {
   category: string;
   user_id: string;
   status: number;
+  ward: string;
+  district: string;
+  province: string;
+  phone: string;
 }
