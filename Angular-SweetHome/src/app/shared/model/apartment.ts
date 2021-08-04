@@ -5,11 +5,15 @@ export interface Apartment {
   description: string;
   bathroom: number;
   bedroom: number;
-  photo: any;
+  photo: string;
   address: string;
   created_at: any;
   user: string;
   category: string;
   user_id: string;
   status: number;
+  ward: string;
+  province: string;
+  district: string;
+  phone: string;
 }
