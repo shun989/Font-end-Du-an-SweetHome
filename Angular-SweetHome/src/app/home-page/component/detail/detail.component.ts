@@ -11,6 +11,7 @@ import {Booking} from "../../../shared/model/booking";
 import {User} from "../../../shared/model/user";
 import {Apartment} from "../../../shared/model/apartment";
 import {now} from "moment";
+import {ImageService} from "../../../service/image.service";
 
 @Component({
   selector: 'app-detail',
@@ -20,9 +21,12 @@ import {now} from "moment";
 })
 
 export class DetailComponent implements OnInit {
-  apartment: Apartment[] = [];
+  apartment: any;
   user: any;
-
+  jpg: any | undefined;
+  png: any | undefined;
+  formUpload: FormGroup | undefined;
+  image: any;
   category: any;
   isLogin: boolean | undefined;
   user_id: any;
@@ -36,7 +40,8 @@ export class DetailComponent implements OnInit {
   booking!: Booking;
   start: any;
   end: any;
-
+  message: any;
+  apartment_id: any;
 
   constructor(private route: ActivatedRoute,
               private apartmentService: ApartmentService,
@@ -45,6 +50,8 @@ export class DetailComponent implements OnInit {
               private toastr: ToastrService,
               private formBuilder: FormBuilder,
               private bookingService: BookingService,
+              private imageService: ImageService,
+              private fb: FormBuilder,
   ) {
     this.unavailabilityForm = this.formBuilder.group({
       startDate: [this.unavailability.startDate],
@@ -74,26 +81,38 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.formUpload = this.fb.group({
+      name: [''],
+      apartment_id: ['']
+    });
     // @ts-ignore
     let id = +this.route.snapshot.paramMap.get('id');
     this.getById(id)
     // this.authService.currentLogin.subscribe(isLogin => this.isLogin = isLogin);
     // this.authService.currentUserLogin.subscribe(user => this.user = user);
     this.user = this.authService.getUserInfo();
-    console.log(this.user)
+    console.log(this.user);
+    this.getImage();
   }
 
   submit(booking: Booking) {
     booking.total_price = this.total_price;
-    booking.user_id = this.user[0].id;
     booking.apartment_id = this.apartment[0].id;
-    // booking.user_id = this.user_id.id;
+    this.user = JSON.parse(<string>(localStorage.getItem('user')));
+    booking.user_id = this.user.id;
     console.log(booking)
     // booking.apartment_id = apartment[0].id;
-    this.bookingService.requestBooking(booking).subscribe((res) => {
-      console.log(res)
-      this.toastr.success('Success', 'Booking successfully')
-    })
+    this.bookingService.requestBooking(booking).subscribe(
+      (res) =>{
+        this.message = res.message
+        this.toastr.success('Success', this.message)
+        console.log(res)
+        this.router.navigate(['./all-apartments'])
+      }, error=>{
+        this.toastr.error('Error', this.message)
+        console.log(error)
+      }
+    );
   }
 
   getById(id: number) {
@@ -130,6 +149,11 @@ export class DetailComponent implements OnInit {
   onSelectFile(event: Event) {
     // @ts-ignore
     if (event.target.files && event.target.files[0]) {
+
+      // @ts-ignore
+      this.jpg = event.target.files[0];
+      // @ts-ignore
+      this.png = event.target.files[0];
       var reader = new FileReader();
 
       // @ts-ignore
@@ -140,7 +164,7 @@ export class DetailComponent implements OnInit {
           if(response != 0){
             // Show image preview
             // @ts-ignore
-            $('#preview').append("<img src='"+response+"' width='100' height='100' style='display: inline-block;'>");
+            $('#preview').append("<img src='"+response+"'>");
           }else{
             alert('file not uploaded');
           }
@@ -154,11 +178,35 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  // onFileSelect(event: any) {
+  //   if (event != null && event.target.files.length > 0) {
+  //     this.jpg = event.target.files[0];
+  //     this.png = event.target.files[0];
+  //   }
+  // }
+
   clearFile() {
     // @ts-ignore
     this.form.get('file').setValue(null);
     this.fileInput.nativeElement.value = '';
   }
 
+  onUpload(): void {
+    let imageData = this.formUpload?.value
+    imageData.name = this.jpg || this.png
+    let apartmentId = this.apartment[0].id;
+    const formData = new FormData();
+    formData.append('name', this.jpg || this.png);
+    formData.append('apartment_id', apartmentId.apartment_id)
+    this.imageService.uploadImg(formData);
+    // this.route.navigate(['action/user-list'])
+  }
+
+  getImage(){
+    this.imageService.getImages().subscribe(res => {
+      this.image = res;
+      console.log(this.image);
+    })
+  }
 
 }
