@@ -5,7 +5,7 @@ export interface Apartment {
   description: string;
   bathroom: number;
   bedroom: number;
-  photo: any;
+  photo: string;
   address: string;
   created_at: any;
   user: string;

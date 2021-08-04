@@ -20,7 +20,7 @@ export class PageListComponent implements OnInit {
   getAll() {
     this.apartmentService.getAll().subscribe((data) => {
       this.apartments = data;
-      console.log(data)
+      // console.log(data)
     })
   }
 
