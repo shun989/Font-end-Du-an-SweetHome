@@ -15,7 +15,7 @@ export class ApartmentActionService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   message: string | undefined;
-
+  user: any;
   constructor(private http: HttpClient,
               private toastr: ToastrService,
               private route: Router) {
@@ -35,6 +35,8 @@ export class ApartmentActionService {
 
   createApartment(apartment: object): void {
     let token = localStorage.getItem('token');
+    this.user = JSON.parse(<string>(localStorage.getItem('user')));
+
     let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
     let httpOptions = {
       headers: headers_object
@@ -44,7 +46,7 @@ export class ApartmentActionService {
         this.message = res.message
         this.toastr.success('Success', this.message)
         console.log(res)
-        this.route.navigate(['action/user-list'])
+        this.route.navigate(['/home/list-of-customer', this.user.id])
       }, error => {
         this.toastr.error('Error', this.message)
         console.log(error)

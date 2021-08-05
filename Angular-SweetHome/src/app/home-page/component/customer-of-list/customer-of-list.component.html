@@ -5,7 +5,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item"><a href="#">Agents</a></li>
-          <li class="breadcrumb-item active" aria-current="page">{{ apartments[0].user }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ apartments[0]?.user }}</li>
         </ol>
       </nav>
     </div>
@@ -21,24 +21,27 @@
               <div class="sidebar_inner">
                 <div class="agent-details mb-5">
                   <div class="text-center">
-                    <img class="img-fluid img-rounded agent-thumb" src="assets/img/demo/profile.jpg" alt="">
+                    <img class="img-fluid img-rounded agent-thumb" style="width: 250px"
+                         src="{{'http://localhost:8000/img/'+ apartments[0]?.photo}}" alt="">
                   </div>
-                  <h3 class="subheadline">{{ apartments[0].user }}</h3>
+                  <h3 class="subheadline">{{ apartments[0]?.user }}</h3>
                   <ul class="list-unstyled">
-                    <li><a href="tel:01502392905"><i class="fa fa-phone fa-fw" aria-hidden="true"></i> Call: {{ apartments[0].phone }}</a></li>
-                    <li><a href="#"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> {{ apartments[0].email }}</a></li>
+                    <li><a href="tel:01502392905"><i class="fa fa-phone fa-fw" aria-hidden="true"></i> Call: {{ apartments[0]?.phone }}</a></li>
+                    <li><a href="#"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> {{ apartments[0]?.email }}</a></li>
                   </ul>
-                  <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Contact {{ apartments[0].user }} </a> </div>
+                  <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Contact {{ apartments[0]?.user }} </a> </div>
               </div>
             </div>
           </div>
           <div class="col-md-7 col-lg-8 col-xl-8">
             <div class="page-header mt-0">
-              <h1>About {{ apartments[0].user }} <small><i class="fa fa-map-marker"></i> {{ apartments[0].address }}</small></h1>
+              <h1>About {{ apartments[0]?.user }} <small>
+                <i class="fa fa-map-marker"></i> {{ apartments[0]?.address }}</small>
+              </h1>
             </div>
 <!--            <p>This is about the Agent section, agent himself can add this from his edit profile section. They can write about their experience in RealEstate market.</p>-->
             <hr/>
-            <div class="lead">Recent properties by {{ apartments[0].user }}</div>
+            <div class="lead">Recent properties by {{ apartments[0]?.user }}</div>
             <div class="clearfix"></div>
             <div class="item-listing list">
               <div class="item" *ngFor="let apartment of apartments">
@@ -46,13 +49,10 @@
                   <div class="col-lg-5">
                     <div class="item-image"> <a routerLink="../../{{apartment.id}}/detail"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
                         <div class="item-badges">
-<!--                          <div class="item-badge-left">Sponsored</div>-->
-                          <div class="item-badge-left" *ngIf="apartment.status == 1">For Rent</div>
-                          <div class="item-badge-right" *ngIf="apartment.status == 2">Rented</div>
-                          <div class="item-badge-right" *ngIf="apartment.status == 3">Upgrading</div>
+                          <div class="item-badge-left" >{{ apartment.status }}</div>
                         </div>
                       <div class="item-meta">
-                        <div class="item-price">{{ apartment.price }} &#8363;
+                        <div class="item-price" style="color: orange">{{ apartment.price | currency: ' ':true }} &#8363;
                         </div>
                       </div>
                     </a>
@@ -61,8 +61,10 @@
                   <div class="col-lg-7">
                     <div class="item-info">
                       <h3 class="item-title"><a href="property_single.html">{{ apartment.name }}</a></h3>
-                      <div class="item-location"><i class="fa fa-map-marker"></i>Province: {{ apartment.province }}, District: {{ apartment.district }}, Ward: {{ apartment.ward }}</div>
-                      <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">{{ apartment.bedroom }} <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">{{ apartment.bathroom }} <i class="fa fa-bath"></i></span> </div>
+                      <div class="item-location"><i class="fa fa-map-marker"></i> Province: {{ apartment.province }}, District: {{ apartment.district }}, Ward: {{ apartment.ward }}</div>
+                      <div class="item-details-i">
+                        <span class="bedrooms" data-toggle="tooltip" > {{ apartment.bedroom }} <i class="fa fa-bed"></i></span>
+                        <span class="bathrooms" data-toggle="tooltip" > {{ apartment.bathroom }} <i class="fa fa-bath"></i></span> </div>
                       <div class="item-details">
                         <ul>
                           <li>Category <span>{{ apartment.category }}</span></li>

@@ -6,8 +6,8 @@
     <div class="item" *ngFor="let apartment of apartments">
       <div class="row">
         <div class="col-lg-5">
-          <div class="item-image"><a href="property_single.html"><img style="width: 150px" src="{{'http://localhost:8000/img/'+apartment.photo}}"
-                                                                      class="img-fluid" alt="">
+          <div class="item-image"><a href="property_single.html">
+            <img style="width: 150px" src="{{'http://localhost:8000/img/'+apartment.photo}}" class="img-fluid" alt="">
             <div class="item-badges">
               <div class="item-badge-left">{{ apartment.status }}</div>
             </div>
