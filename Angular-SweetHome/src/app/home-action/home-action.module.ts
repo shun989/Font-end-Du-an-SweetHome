@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AddApartmentComponent} from "./component/add-apartment/add-apartment.component";
-import { ChangePasswordComponent } from './component/change-password/change-password.component';
-import { ProfileComponent } from './component/profile/profile.component';
-import { BookmarkedListComponent } from './component/bookmarked-list/bookmarked-list.component';
-import { UserListComponent } from './component/user-list/user-list.component';
-import { NotificationsComponent } from './component/notifications/notifications.component';
-import { PaymentsComponent } from './component/payments/payments.component';
-import { AccountComponent } from './component/account/account.component';
+import {ChangePasswordComponent} from './component/change-password/change-password.component';
+import {ProfileComponent} from './component/profile/profile.component';
+import {BookmarkedListComponent} from './component/bookmarked-list/bookmarked-list.component';
+import {UserListComponent} from './component/user-list/user-list.component';
+import {NotificationsComponent} from './component/notifications/notifications.component';
+import {PaymentsComponent} from './component/payments/payments.component';
+import {AccountComponent} from './component/account/account.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 const routes: Routes = [
 
@@ -26,7 +27,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'bookmarked',
+    path: 'bookmarked/:id',
     component: BookmarkedListComponent
   },
   {
@@ -58,11 +59,13 @@ const routes: Routes = [
     PaymentsComponent,
     AccountComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        ReactiveFormsModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule
+  ]
 })
-export class HomeActionModule { }
+export class HomeActionModule {
+}

@@ -53,8 +53,6 @@ export class DetailComponent implements OnInit {
       startDate: [now(), Validators.required],
       endDate: ['', Validators.required],
     })
-
-    // this.booking.apartment_id = this.apartment.id;
   }
 
   onStartDateChange(e: Event) {
@@ -98,9 +96,9 @@ export class DetailComponent implements OnInit {
     this.bookingService.requestBooking(booking).subscribe(
       (res) =>{
         this.message = res.message
-        this.toastr.success('Success', this.message)
+        this.toastr.success('Thank you', 'Booking successfully')
         console.log(res)
-        this.router.navigate(['./all-apartments'])
+        this.router.navigate(['./action/bookmarked', this.user.id])
       }, error=>{
         this.toastr.error('Error', this.message)
         console.log(error)

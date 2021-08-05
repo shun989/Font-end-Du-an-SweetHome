@@ -9,6 +9,7 @@ import {ApartmentService} from "../../../service/apartment.service";
 })
 export class PageListComponent implements OnInit {
   apartments: Apartment[] = [];
+  filterTerm!: string;
 
   constructor(private apartmentService: ApartmentService) {
   }

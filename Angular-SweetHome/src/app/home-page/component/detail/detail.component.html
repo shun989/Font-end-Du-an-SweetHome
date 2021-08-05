@@ -200,7 +200,7 @@
                         </table>
                         <hr>
                         <form [formGroup]="unavailabilityForm" (ngSubmit)="submit(unavailabilityForm.value)">
-                            <div class="price" ><strong style="color: orangered">  {{ apartment[0]?.price }} &#8363; </strong>/ <small>ngày</small>
+                            <div class="price" ><strong style="color: orangered">  {{ apartment[0]?.price |currency:' ':true }} &#8363; </strong>/ <small>ngày</small>
                               <!--              <small>$900/sq ft</small>-->
                             </div>
 
@@ -225,8 +225,8 @@
                             </mat-form-field>
                           </div>
                           <hr>
-                          <label><strong> Total days:</strong><span >{{ days }}</span></label>
-                          <p><strong> Total price:</strong><span>{{ total_price }}</span></p>
+                          <label><strong> Total days:</strong><span> {{ days }} day.</span></label>
+                          <p><strong> Total price:</strong><span>{{ total_price |currency:' ':true }} &#8363;</span></p>
                           <button  class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
                         </form>
                       </div>
