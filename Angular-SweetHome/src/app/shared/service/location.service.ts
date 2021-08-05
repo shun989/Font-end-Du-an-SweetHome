@@ -6,7 +6,7 @@ import {map} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class AddApartmentService {
+export class LocationService {
 
 
   constructor(private http: HttpClient) { }

@@ -197,7 +197,7 @@ export class DetailComponent implements OnInit {
     let apartmentId = this.apartment[0].id;
     const formData = new FormData();
     formData.append('name', this.jpg || this.png);
-    formData.append('apartment_id', apartmentId.apartment_id)
+    formData.append('apartment_id', apartmentId)
     this.imageService.uploadImg(formData);
     // this.route.navigate(['action/user-list'])
   }

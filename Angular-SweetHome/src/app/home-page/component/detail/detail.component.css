@@ -18,3 +18,11 @@
   height: 100px;
   display: inline-block;
 }
+
+.carousel-control-next-icon{
+  padding-top: 20px!important;
+}
+
+.carousel-control-prev-icon{
+  padding-bottom: 1px!important;
+}

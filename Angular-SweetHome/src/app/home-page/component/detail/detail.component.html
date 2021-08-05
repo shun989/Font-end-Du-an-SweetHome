@@ -41,8 +41,8 @@
                         <!--                        //image-->
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <a href="assets/img/demo/property/1.jpg" itemprop="contentUrl" data-size="2000x1414">
-                              <img src="assets/img/demo/property/1.jpg" class="img-fluid swiper-lazy"
+                            <a href="{{'http://localhost:8000/img/' + apartment[0].photo}}" itemprop="contentUrl" data-size="2000x1414">
+                              <img src="{{'http://localhost:8000/img/' + apartment[0].photo}}" class="img-fluid swiper-lazy"
                                    alt="Drawing Room"> </a>
                           </div>
                           <div class="carousel-item">
@@ -229,7 +229,7 @@
                             </mat-form-field>
                           </div>
                           <hr>
-                          <label><strong> Total days:</strong><span >{{ days }}</span></label>
+                          <label><strong> Total days:</strong><span>{{ days }}</span></label>
                           <p><strong> Total price:</strong><span>{{ total_price |currency:' ':true}} &#8363; </span></p>
                           <button  class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
                         </form>
@@ -435,12 +435,12 @@
       </div>
       <div class="modal-body">
         <!-- Form -->
-        <form enctype="multipart/form-data" (submit)="onUpload()">
+        <form *ngIf="formUpload" enctype="multipart/form-data" [formGroup]="formUpload" (submit)="onUpload()">
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
                 <label>Apartment Id:</label>
-                <input type="text" class="form-control " value="{{apartment[0].id}}" formControlName="apartment_id" readonly>
+                <input type="text" class="form-control " value="{{apartment[0].id}}" readonly>
               </div>
             </div>
             <div class="col-lg-9">
@@ -451,7 +451,7 @@
             </div>
           </div>
           Select file : <input type='file' name='myFile' id='file' class='form-control'
-                               (change)="onSelectFile($event)" formControlName="name"><br>
+                               (change)="onSelectFile($event)" formControlName="name" multiple><br>
           <button type='button' class='btn btn-info' id='btn_upload' (click)="onUpload()">Upload</button>
           <button type="button" class="btn btn-default mx-3" (click)="clearFile()" data-dismiss="modal">Cancel</button>
         </form>

@@ -20,17 +20,17 @@ export class ApartmentActionService {
               private route: Router) { }
 
 
-  addApartment(data: any) {
-    let token =localStorage.getItem('token');
-    let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
-    let httpOptions = {headers: headers_object};
-    return this.http.post<any>(this.apartmentUrl + '/add', data, httpOptions)
-
-      .pipe(map((res: any)=>{
-        console.log(res)
-        return res
-      }))
-  }
+  // addApartment(data: any) {
+  //   let token =localStorage.getItem('token');
+  //   let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
+  //   let httpOptions = {headers: headers_object};
+  //   return this.http.post<any>(this.apartmentUrl + '/add', data, httpOptions)
+  //
+  //     .pipe(map((res: any)=>{
+  //       console.log(res)
+  //       return res
+  //     }))
+  // }
 
   createApartment(apartment:object):void{
     let token = localStorage.getItem('token');

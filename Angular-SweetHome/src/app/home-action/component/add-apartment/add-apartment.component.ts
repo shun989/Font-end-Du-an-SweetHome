@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ApartmentActionService} from "../../service/apartment-action.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {AddApartmentService} from "../../../shared/service/add-apartment.service";
 import {AuthService} from "../../../auth/service/auth.service";
+import {LocationService} from "../../../shared/service/location.service";
 
 
 @Component({
@@ -31,7 +31,7 @@ export class AddApartmentComponent implements OnInit {
               private http: HttpClient,
               private fb: FormBuilder,
               public authService : AuthService,
-              private addApartmentService: AddApartmentService,
+              private locationService: LocationService,
               private route: Router) {
   }
 
@@ -65,7 +65,7 @@ export class AddApartmentComponent implements OnInit {
   }
 
   getCity(){
-    this.addApartmentService.getProvinces().subscribe(res => {
+    this.locationService.getProvinces().subscribe(res => {
       this.provinces = res;
       console.log(this.provinces)
     })
@@ -78,7 +78,7 @@ export class AddApartmentComponent implements OnInit {
   }
 
   getDistrict():void{
-    this.addApartmentService.getDistrict(this.city_id).subscribe(res => {
+    this.locationService.getDistrict(this.city_id).subscribe(res => {
       this.districts = res;
       console.log(this.districts)
     })
@@ -92,21 +92,21 @@ export class AddApartmentComponent implements OnInit {
 
 
   getAllWards(){
-    this.addApartmentService.getWards().subscribe(res => {
+    this.locationService.getWards().subscribe(res => {
       this.wards = res;
       console.log(this.wards)
     })
   }
 
   getAllCategory(){
-    this.addApartmentService.getCategory().subscribe(res =>{
+    this.locationService.getCategory().subscribe(res =>{
       this.categories = res;
       console.log(this.categories);
     })
   }
 
   getAllStatus(){
-    this.addApartmentService.getStatus().subscribe(res => {
+    this.locationService.getStatus().subscribe(res => {
       this.allStatus = res;
       console.log(this.allStatus);
     })
