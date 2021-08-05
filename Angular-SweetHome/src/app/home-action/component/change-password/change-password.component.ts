@@ -18,13 +18,6 @@ export class ChangePasswordComponent implements OnInit {
               private toastr: ToastrService) {
   }
 
-  error_message = {
-    'password': [
-      {type: 'required', message: 'Password is required'},
-      {type: 'minlength', message: 'Password is too low!'},
-      {type: 'maxlength', message: 'Password must be between 6 and 8 charaters!'}
-    ]
-  };
 
   ngOnInit(): void {
     this.changePasswordForm = this.fb.group({
@@ -37,8 +30,6 @@ export class ChangePasswordComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(8)]],
-    },{
-      validators: this.passwordMatch.bind(this)
     });
   }
 
@@ -49,14 +40,6 @@ export class ChangePasswordComponent implements OnInit {
         this.errPassword = res.message
       }
     }, (error: any) => console.log(error));
-  }
-
-  passwordMatch(formGroup: FormGroup) {
-    // @ts-ignore
-    const {value: password} = formGroup.get('password');
-    // @ts-ignore
-    const {value: password_confirmation} = formGroup.get('passwordConfirmation');
-    return password === password_confirmation ? null : {passwordNotMatch: true};
   }
 
   get password(){
