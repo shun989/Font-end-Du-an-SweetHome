@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HomeService} from "../../../service/home.service";
 
 @Component({
@@ -9,12 +9,15 @@ import {HomeService} from "../../../service/home.service";
 export class HomePageComponent implements OnInit {
   featured: any;
   lasteds: any;
+  count: any;
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService) {
+  }
 
   ngOnInit(): void {
     this.getFeatured();
     this.getLasted();
+    this.getCountArea();
   }
 
   getFeatured() {
@@ -26,6 +29,13 @@ export class HomePageComponent implements OnInit {
   getLasted() {
     this.homeService.getLastedApartment().subscribe((res) => {
       this.lasteds = res
+      console.log(res)
+    })
+  }
+
+  getCountArea() {
+    this.homeService.getCountArea().subscribe((res) => {
+      this.count = res
       console.log(res)
     })
   }

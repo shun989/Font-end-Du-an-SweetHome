@@ -53,8 +53,6 @@ export class DetailComponent implements OnInit {
       startDate: [now(), Validators.required],
       endDate: ['', Validators.required],
     })
-
-    // this.booking.apartment_id = this.apartment.id;
   }
 
   onStartDateChange(e: Event) {

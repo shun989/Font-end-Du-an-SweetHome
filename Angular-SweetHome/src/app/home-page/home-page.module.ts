@@ -43,7 +43,7 @@ const routes: Routes = [
     component: ApamentsHotListComponent
   },
   {
-    path: 'area/:id',
+    path: 'area/:code',
     component: ListInAreaComponent
   },
   {
