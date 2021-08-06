@@ -4,7 +4,6 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Agents</a></li>
           <li class="breadcrumb-item active" aria-current="page">{{ apartments[0]?.user }}</li>
         </ol>
       </nav>
@@ -22,7 +21,7 @@
                 <div class="agent-details mb-5">
                   <div class="text-center">
                     <img class="img-fluid img-rounded agent-thumb" style="width: 250px"
-                         src="{{'http://localhost:8000/img/'+ apartments[0]?.photo}}" alt="">
+                         src="{{user.image}}" alt="">
                   </div>
                   <h3 class="subheadline">{{ apartments[0]?.user }}</h3>
                   <ul class="list-unstyled">
@@ -47,7 +46,7 @@
               <div class="item" *ngFor="let apartment of apartments">
                 <div class="row">
                   <div class="col-lg-5">
-                    <div class="item-image"> <a routerLink="../../{{apartment.id}}/detail"><img src="assets/img/demo/property/1.jpg" class="img-fluid" alt="">
+                    <div class="item-image"> <a routerLink="../../{{apartment.id}}/detail"><img src="{{'http://localhost:8000/img/'+apartment.photo}}" class="img-fluid" alt="">
                         <div class="item-badges">
                           <div class="item-badge-left" >{{ apartment.status }}</div>
                         </div>
@@ -74,11 +73,9 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="added-on">Listed on {{ apartment.created_at }} </div>
-
                       </div>
                       <div class="col-md-6">
                         <a href="#" class="added-by">by {{ apartment.user }}</a>
-
                       </div>
                     </div>
                   </div>

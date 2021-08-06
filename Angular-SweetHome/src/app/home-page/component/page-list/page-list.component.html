@@ -14,11 +14,7 @@
               <div class="form-group">
                 <select class="form-control form-control-lg ui-select" data-placeholder="Property Type">
                   <option value="">Property Type</option>
-                  <option value="house">House</option>
-                  <option value="flat">Flat</option>
-                  <option value="apartment">Apartment</option>
-                  <option value="land">Land</option>
-                  <option value="room">Room</option>
+                  <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
                 </select>
               </div>
             </div>
@@ -192,6 +188,14 @@
                           class="fa fa-bed"></i></span>
                         <span class="bathrooms" data-toggle="tooltip">{{ apartment.bathroom }} <i
                           class="fa fa-bath"></i></span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="added-on">Listed on {{ apartment.created_at }} </div>
+                      </div>
+                      <div class="col-md-6">
+                        <a href="#" class="added-by">by {{ apartment.user }}</a>
                       </div>
                     </div>
                   </div>

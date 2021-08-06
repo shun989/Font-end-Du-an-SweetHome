@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {
     path: 'add-apartment',
-    component: AddApartmentComponent
+    component: AddApartmentComponent,
   },
   {
     path: 'change-password',

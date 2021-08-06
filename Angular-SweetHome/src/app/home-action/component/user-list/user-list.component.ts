@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetApartmentService} from "../../../shared/service/get-apartment.service";
+import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../../../auth/service/auth.service";
 import {HttpHeaders} from "@angular/common/http";
 
 @Component({
@@ -8,23 +10,32 @@ import {HttpHeaders} from "@angular/common/http";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
   apartments : any;
-  constructor(private getApartmentService: GetApartmentService) { }
+  user: any;
+
+  constructor(private getApartmentService: GetApartmentService,
+              private route: ActivatedRoute,
+              public authService : AuthService,) { }
 
   ngOnInit(): void {
-    this.getApartOfUser();
+    this.authService.currentUserLogin.subscribe(user => this.user = user);
+    this.getUserLogin()
+    // @ts-ignore
+    let id = +this.route.snapshot.paramMap.get('id');
+    this.getApartOfUser(id);
   }
 
-  getApartOfUser(){
-    let token =localStorage.getItem('token');
-    let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
-    let httpOptions = {headers: headers_object};
-    this.getApartmentService.getApartmentOFUser().subscribe(res => {
-      this.apartments = res;
-      console.log(this.apartments)
+  getUserLogin():void {
+    if(this.authService.isLogin()) {
+      this.user = JSON.parse(<string>(localStorage.getItem('user')));
+      // console.log(this.user)
+    }
+  }
+
+  getApartOfUser(id: number) {
+    this.getApartmentService.getListOfUser(id).subscribe((data) => {
+      this.apartments = data;
+      console.log(data)
     })
   }
 

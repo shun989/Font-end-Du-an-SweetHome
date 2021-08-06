@@ -58,7 +58,7 @@
         <div class="row">
           <div class="form-group">
             <label>Phone</label>
-            <input type="text" class="form-control form-control-lg" placeholder="" value="{{user.phone}}">
+            <input type="text" class="form-control form-control-lg" placeholder="" value="{{user.phone}}" readonly>
           </div>
         </div>
         <h3 class="subheadline">Agent/Company Profile</h3>
@@ -68,7 +68,9 @@
         </div>
       </div>
       <div class="mt-2">
-        <div id="imgArea"><img [src]="url ? url :'assets/img/demo/profile2.jpg'" class="avatar-input">
+        <div id="imgArea">
+          <img *ngIf="!url" src="{{user.image}}" class="avatar-input">
+          <img *ngIf="url" [src]="url ? url : ''" class="avatar-input">
           <div class="progressBar">
             <div class="bar"></div>
             <div class="percent">0%</div>

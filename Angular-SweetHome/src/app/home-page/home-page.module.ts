@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: ':id/detail',
     component: DetailComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'all-apartments',

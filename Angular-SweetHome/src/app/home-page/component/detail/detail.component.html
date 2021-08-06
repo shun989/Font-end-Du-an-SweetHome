@@ -244,10 +244,16 @@
                               </mat-form-field>
                             </div>
                             <hr>
-                            <label><strong> Total days:</strong><span> {{ days }} day.</span></label>
-                            <p><strong> Total price:</strong><span>{{ total_price |currency:' ':true }} &#8363;</span>
+                            <label><strong> Total days:</strong>
+                              <span *ngIf="!days"><strong> 0 day.</strong></span>
+                              <span *ngIf="days"><strong class="text-danger"> {{ days }} day.</strong></span>
+                            </label>
+                            <p><strong> Total price: </strong>
+                              <span *ngIf="!total_price"><strong> 0 &#8363;</strong></span>
+                              <span *ngIf="total_price"><strong class="text-danger">{{ total_price |currency:' ':true }} &#8363;</strong></span>
                             </p>
-                            <button class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
+                            <button *ngIf="user" class="btn btn-lg btn-primary btn-block" data-target="#leadform">Booking</button>
+                            <button *ngIf="!user" class="btn btn-lg btn-primary btn-block" data-target="#leadform" routerLink="../account/login">Booking</button>
                           </form>
                         </div>
                       </div>
@@ -256,8 +262,8 @@
                   <div class="card shadow">
                     <h4 class="subheadline mt-0  mb-0">For Sale by Agent</h4>
                     <div class="media">
-                      <div class="media-left"><a href="agent.html">
-                        <img class="media-object rounded-circle" src="assets/img/demo/profile.jpg" width="64"
+                      <div class="media-left"><a href="#">
+                        <img class="media-object rounded-circle" src="{{apartment[0]?.image}}" width="64"
                              height="64" alt=""> </a>
                       </div>
                       <div class="media-body">
@@ -266,7 +272,7 @@
                         </h4>
                         <p><a href="tel:01502392905"><i class="fa fa-phone" aria-hidden="true"></i>
                           Call: {{ apartment[0]?.phone }}</a></p>
-                        <p><a href="agent.html" class="btn btn-sm btn-light">View Profile</a></p>
+                        <p><a href="#" class="btn btn-sm btn-light">View Profile</a></p>
                       </div>
                     </div>
                   </div>
@@ -277,14 +283,16 @@
                     <a href="#" class="btn btn-light" data-toggle="tooltip" title="Print this page">
                       <i class="fa fa-print" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="btn btn-light" data-toggle="modal" data-target="#email-to-friend"><span
-                      data-toggle="tooltip" title="Email to Friend">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <a href="#" class="btn btn-light" data-toggle="modal" data-target="#email-to-friend">
+                      <span data-toggle="tooltip" title="Email to Friend">
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      </span>
                     </a>
-                    <a href="#" class="btn btn-light" data-toggle="modal" data-target="#report-listing"><span
-                      data-toggle="tooltip" title="Report Listing">
-                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
-                    </a>
+                  <a href="#" class="btn btn-light" data-toggle="modal" data-target="#report-listing">
+                    <span data-toggle="tooltip" title="Report Listing">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                  </a>
                   </div>
                 </div>
               </div>
@@ -300,15 +308,17 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="media">
-            <div class="media-left"><img src="assets/img/demo/property/thumb/1.jpg" width="60" class="img-rounded mt5"
-                                         alt=""></div>
+            <div class="media-left">
+              <img src="assets/img/demo/property/thumb/1.jpg" width="60" class="img-rounded mt5" alt="">
+            </div>
             <div class="media-body">
               <h4 class="media-heading">Request details for {{ apartment[0]?.name }}</h4>
-              {{ apartment[0]?.address }}</div>
+              {{ apartment[0]?.address }}
+            </div>
           </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
+
         <div class="modal-body">
           <form>
             <div class="form-group">
@@ -328,14 +338,16 @@
               <!--            <input type="date" formControlName="end" placeholder="End date">-->
 
             </div>
-
-
+            <div class="modal-footer">
+              <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Request Details</button>
+            </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Request Details</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Request Details</button>
       </div>
     </div>
   </div>
@@ -452,7 +464,7 @@
         </div>
         <div class="modal-body">
           <!-- Form -->
-          <form *ngIf="formUpload" enctype="multipart/form-data" [formGroup]="formUpload" (submit)="onUpload()">
+          <form *ngIf="formUpload" enctype="multipart/form-data" [formGroup]="formUpload">
             <div class="row">
               <div class="col-lg-3">
                 <div class="form-group">
@@ -467,8 +479,8 @@
                 </div>
               </div>
             </div>
-            Select file : <input type='file' name='myFile' id='file' class='form-control'
-                                 (change)="onSelectFile($event)" formControlName="name" multiple><br>
+            Select file : <input type='file' name='myFile' id='file' class='form-control' accept="image/*"
+                                 (change)="onSelectFile($event)" formControlName="name"><br>
             <button type='button' class='btn btn-info' id='btn_upload' (click)="onUpload()">Upload</button>
             <button type="button" class="btn btn-default mx-3" (click)="clearFile()" data-dismiss="modal">Cancel
             </button>

@@ -90,12 +90,12 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['action/profile'])
   }
 
-  submitUpdate(id: any): void {
+  submitUpdate(): void {
     this.userModelObj.id = this.user.id;
-    this.userModelObj.name = this.formUpdatePr.value.name;
+    this.userModelObj.name = this.user.name;
     this.userModelObj.fullName = this.formUpdatePr.value.fullName;
-    this.userModelObj.phone = this.formUpdatePr.value.phone;
-    this.userModelObj.email = this.formUpdatePr.value.email;
+    this.userModelObj.phone = this.user.phone;
+    this.userModelObj.email = this.user.email;
     this.userModelObj.address = this.formUpdatePr.value.address;
     this.userActionService.updateUser(this.userModelObj);
   }

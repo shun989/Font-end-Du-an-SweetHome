@@ -24,7 +24,7 @@ export class UserActionService {
     let httpOptions = {
       headers: headers_object
     };
-    this.http.put<any>(environment.ApiUrl + '/update-profile/' + id, httpOptions).subscribe(
+    this.http.put<any>(environment.ApiUrl + '/me' + id + '/update-profile/', httpOptions).subscribe(
       (res) =>{
         this.message = res.message
         this.toastr.success('Success', this.message)

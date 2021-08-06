@@ -1,6 +1,7 @@
 import {Component, OnInit, Pipe} from '@angular/core';
 import {Apartment} from "../../../shared/model/apartment";
 import {ApartmentService} from "../../../service/apartment.service";
+import {LocationService} from "../../../shared/service/location.service";
 
 @Component({
   selector: 'app-page-list',
@@ -13,9 +14,11 @@ export class PageListComponent implements OnInit {
   // @ts-ignore
   @Pipe({name:'split'})
   filterTerm!: string;
+  categories: any;
 
 
-  constructor(private apartmentService: ApartmentService) {
+  constructor(private apartmentService: ApartmentService,
+              private locationService: LocationService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +29,13 @@ export class PageListComponent implements OnInit {
     this.apartmentService.getAll().subscribe((data) => {
       this.apartments = data;
       // console.log(data)
+    })
+  }
+
+  getAllCategory(){
+    this.locationService.getCategory().subscribe(res =>{
+      this.categories = res;
+      console.log(this.categories);
     })
   }
 

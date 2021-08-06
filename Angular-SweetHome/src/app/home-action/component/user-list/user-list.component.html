@@ -3,42 +3,39 @@
     <h1>My Listings</h1>
   </div>
   <div class="item-listing list">
-    <div class="item">
+    <div class="item" *ngFor="let apartment of apartments">
       <div class="row">
         <div class="col-lg-5">
-          <div class="item-image"> <a href="property_single.html"><img src="" class="img-fluid" alt="">
+          <div class="item-image"> <a routerLink="../../{{apartment.id}}/detail"><img src="{{'http://localhost:8000/img/'+apartment.photo}}" class="img-fluid" alt="">
             <div class="item-badges">
-              <div class="item-badge-left">Sponsored</div>
-              <div class="item-badge-right">For Sale</div>
+              <div class="item-badge-left" >{{ apartment.status }}</div>
             </div>
             <div class="item-meta">
-              <div class="item-price">
+              <div class="item-price" style="color: orange">{{ apartment.price | currency: ' ':true }} &#8363;
               </div>
             </div>
           </a>
             <a href="#" class="save-item"><i class="fa fa-star"></i></a> </div>
-          <a href="#" class="remove-item"><i class="fa fa-trash-o"></i> Delete</a>
         </div>
         <div class="col-lg-7">
           <div class="item-info">
-            <h3 class="item-title"><a href="property_single.html">bed semi-detached house for sale</a></h3>
-            <div class="item-location"><i class="fa fa-map-marker"></i></div>
-            <div class="item-details-i"> <span class="bedrooms" data-toggle="tooltip" title="3 Bedrooms">3 <i class="fa fa-bed"></i></span> <span class="bathrooms" data-toggle="tooltip" title="2 Bathrooms">2 <i class="fa fa-bath"></i></span> </div>
+            <h3 class="item-title"><a href="property_single.html">{{ apartment.name }}</a></h3>
+            <div class="item-location"><i class="fa fa-map-marker"></i> Province: {{ apartment.province }}, District: {{ apartment.district }}, Ward: {{ apartment.ward }}</div>
+            <div class="item-details-i">
+              <span class="bedrooms" data-toggle="tooltip" > {{ apartment.bedroom }} <i class="fa fa-bed"></i></span>
+              <span class="bathrooms" data-toggle="tooltip" > {{ apartment.bathroom }} <i class="fa fa-bath"></i></span> </div>
             <div class="item-details">
               <ul>
-                <li>Sq Ft <span>730-2600</span></li>
-                <li>Type <span></span></li>
+                <li>Category <span>{{ apartment.category }}</span></li>
               </ul>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <div class="added-on">Listed on 19th Feb 2017 </div>
-
+              <div class="added-on">Listed on {{ apartment.created_at }} </div>
             </div>
             <div class="col-md-6">
-              <a href="#" class="added-by">by John Doe</a>
-
+              <a href="#" class="added-by">by {{ apartment.user }}</a>
             </div>
           </div>
         </div>

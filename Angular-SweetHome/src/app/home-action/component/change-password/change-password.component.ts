@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../auth/service/auth.service";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
+import {Message} from "../../../shared/model/message";
 
 @Component({
   selector: 'app-change-password',
@@ -12,19 +14,14 @@ export class ChangePasswordComponent implements OnInit {
   changePasswordForm?: FormGroup;
   message?: string;
   errPassword?: string;
+  mess?: Message;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private router: Router) {
   }
 
-  error_message = {
-    'password': [
-      {type: 'required', message: 'Password is required'},
-      {type: 'minlength', message: 'Password is too low!'},
-      {type: 'maxlength', message: 'Password must be between 6 and 8 charaters!'}
-    ]
-  };
 
   ngOnInit(): void {
     this.changePasswordForm = this.fb.group({
@@ -37,8 +34,6 @@ export class ChangePasswordComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(8)]],
-    },{
-      validators: this.passwordMatch.bind(this)
     });
   }
 
@@ -46,17 +41,18 @@ export class ChangePasswordComponent implements OnInit {
     let data = this.changePasswordForm?.value;
     this.authService.changePassword(data).subscribe((res: any) => {
       if (res.error) {
-        this.errPassword = res.message
+        this.mess = res.message
+        this.toastr.error('Error', this.message)
+        console.log(this.mess)
       }
-    }, (error: any) => console.log(error));
-  }
+    }, (error) =>{
+      this.mess = error.error
+      this.toastr.error('Error', this.message)
+      console.log(this.mess)
+    });
+    this.toastr.success('Success', 'Đổi mật khẩu thành công.')
+    this.router.navigate(['action/profile'])
 
-  passwordMatch(formGroup: FormGroup) {
-    // @ts-ignore
-    const {value: password} = formGroup.get('password');
-    // @ts-ignore
-    const {value: password_confirmation} = formGroup.get('passwordConfirmation');
-    return password === password_confirmation ? null : {passwordNotMatch: true};
   }
 
   get password(){

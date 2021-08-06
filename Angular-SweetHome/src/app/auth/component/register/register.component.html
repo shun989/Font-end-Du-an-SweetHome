@@ -27,7 +27,7 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="login">
-            <form *ngIf="formRegister" [formGroup]="formRegister">
+            <form *ngIf="formRegister" [formGroup]="formRegister" (ngSubmit)="submitRegister()">
               <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" class="form-control form-control-lg" placeholder="Your Name"
@@ -110,7 +110,7 @@
                   </ng-container>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" (submit)="submitRegister()">Register</button>
+              <button type="submit" class="btn btn-primary btn-lg" >Register</button>
             </form>
           </div>
         </div>

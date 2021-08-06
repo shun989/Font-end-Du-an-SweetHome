@@ -90,10 +90,8 @@ export class DetailComponent implements OnInit {
     // @ts-ignore
     let id = +this.route.snapshot.paramMap.get('id');
     this.getById(id)
-    // this.authService.currentLogin.subscribe(isLogin => this.isLogin = isLogin);
-    // this.authService.currentUserLogin.subscribe(user => this.user = user);
-    this.user = this.authService.getUserInfo();
-    console.log(this.user);
+    this.authService.currentUserLogin.subscribe(user => this.user = user);
+    this.getUserLogin();
     this.getImage();
   }
 
@@ -207,7 +205,6 @@ export class DetailComponent implements OnInit {
     formData.append('name', this.jpg || this.png);
     formData.append('apartment_id', apartmentId)
     this.imageService.uploadImg(formData);
-    // this.route.navigate(['action/user-list'])
   }
 
   getImage(){
@@ -215,6 +212,13 @@ export class DetailComponent implements OnInit {
       this.image = res;
       console.log(this.image);
     })
+  }
+
+  getUserLogin():void {
+    if(this.authService.isLogin()) {
+      this.user = JSON.parse(<string>(localStorage.getItem('user')));
+      // console.log(this.user)
+    }
   }
 
 }

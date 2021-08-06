@@ -236,7 +236,7 @@
                   <div class="item">
                     <div class="item-image">
                       <a routerLink="{{lasted.id}}/detail">
-                        <img style="" src="{{'http://localhost:8000/img/' + lasted.photo}}"
+                        <img style="height: 200px; width: 288px" src="{{'http://localhost:8000/img/' + lasted.photo}}"
                              class="img-fluid" alt="">
                         <div class="item-meta">
                           <div class="item-price">{{ lasted.price |currency:' ':true }} &#8363;
@@ -255,12 +255,20 @@
                         {{ lasted.address }}
                       </div>
                       <div class="item-details-i">
-                        <span class="bedrooms" data-toggle="tooltip" title="{{ lasted.bedroom }}">
-                          <i class="fa fa-bed"></i>
+                        <span class="bedrooms" data-toggle="tooltip" title="">
+                          <i class="fa fa-bed"></i>{{ lasted.bedroom }}
                         </span>
-                        <span class="bathrooms" data-toggle="tooltip" title="{{ lasted.bathroom }}">
-                          <i class="fa fa-bath"></i>
+                        <span class="bathrooms" data-toggle="tooltip" title="">
+                          <i class="fa fa-bath"></i>{{ lasted.bathroom }}
                         </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="added-on">Listed on {{ lasted.created_at }} </div>
+                      </div>
+                      <div class="col-md-6">
+                        <a href="#" class="added-by">by {{ lasted.user }}</a>
                       </div>
                     </div>
                   </div>
@@ -287,7 +295,7 @@
             <div class="card-img-overlay">
               <h3 class="card-title text-center custom-city">Hà Nội</h3>
               <p class="card-text text-light">
-                {{ count[0].apartments_count }}
+                {{ count[0]?.apartments_count }}
               </p>
             </div>
           </div>
@@ -304,7 +312,7 @@
             <div class="card-img-overlay text-color">
               <h3 class="card-title text-center custom-city">Thành phố Hồ Chí Minh</h3>
               <p class="card-text text-light">
-                {{ count[0].apartments_count }}
+                {{ count[0]?.apartments_count }}
               </p>
             </div>
           </div>

@@ -22,7 +22,7 @@ export class HomeMenuTopComponent implements OnInit {
     this.authService.currentLogin.subscribe(isLogin => this.isLogin = isLogin);
     this.authService.currentUserLogin.subscribe(user => this.user = user);
     this.checkLogin();
-    this.getUserLogin()
+    this.getUserLogin();
   }
 
   checkLogin():void {
@@ -32,7 +32,7 @@ export class HomeMenuTopComponent implements OnInit {
   getUserLogin():void {
     if(this.authService.isLogin()) {
       this.user = JSON.parse(<string>(localStorage.getItem('user')));
-      // console.log(this.user)
+      console.log(this.user)
     }
   }
 
