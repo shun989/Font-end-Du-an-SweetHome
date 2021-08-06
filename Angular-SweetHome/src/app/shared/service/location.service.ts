@@ -66,4 +66,11 @@ export class LocationService {
         return res;
       }))
   }
+
+  getStatusId(id:any){
+    return this.http.get<any>(environment.ApiUrl + '/status/'+ id)
+      .pipe(map((res:any)=>{
+        return res;
+      }))
+  }
 }

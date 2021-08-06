@@ -80,7 +80,8 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20)]),
+        Validators.maxLength(20)
+      ]),
       confirmPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -88,14 +89,16 @@ export class RegisterComponent implements OnInit {
       ]),
     }, {
       validators: this.passwordMatch.bind(this)
-    })
+    });
   }
 
   get f() {
     return this.formRegister.controls;
   }
 
+
   submitRegister(): void {
+
     this.userModelObj.name = this.formRegister.value.name;
     this.userModelObj.password = this.formRegister.value.password;
     this.userModelObj.phone = this.formRegister.value.phone;

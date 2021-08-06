@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-action-menu-left',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./action-menu-left.component.css']
 })
 export class ActionMenuLeftComponent implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.user = JSON.parse(<string>(localStorage.getItem('user')));
   }
 
 }

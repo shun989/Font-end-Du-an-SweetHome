@@ -12,6 +12,8 @@ import {User} from "../../../shared/model/user";
 import {Apartment} from "../../../shared/model/apartment";
 import {now} from "moment";
 import {ImageService} from "../../../service/image.service";
+import { DatePipe } from '@angular/common';
+import {LocationService} from "../../../shared/service/location.service";
 
 @Component({
   selector: 'app-detail',
@@ -21,7 +23,7 @@ import {ImageService} from "../../../service/image.service";
 })
 
 export class DetailComponent implements OnInit {
-  apartment: any;
+  apartment: any = [];
   user: any;
   jpg: any | undefined;
   png: any | undefined;
@@ -30,7 +32,7 @@ export class DetailComponent implements OnInit {
   category: any;
   isLogin: boolean | undefined;
   user_id: any;
-  unavailabilityForm!: FormGroup;
+  unavailabilityForm !: FormGroup;
   unavailability = {startDate: '', endDate: ''}
   loading: boolean = false;
   url = '';
@@ -52,6 +54,8 @@ export class DetailComponent implements OnInit {
               private bookingService: BookingService,
               private imageService: ImageService,
               private fb: FormBuilder,
+              private datePipe: DatePipe,
+              private locationService: LocationService,
   ) {
     this.unavailabilityForm = this.formBuilder.group({
       startDate: [this.unavailability.startDate],
@@ -61,8 +65,6 @@ export class DetailComponent implements OnInit {
       startDate: [now(), Validators.required],
       endDate: ['', Validators.required],
     })
-
-    // this.booking.apartment_id = this.apartment.id;
   }
 
   onStartDateChange(e: Event) {
@@ -95,19 +97,25 @@ export class DetailComponent implements OnInit {
     this.getImage();
   }
 
+  transformDate(date: any): any {
+    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
+
   submit(booking: Booking) {
     booking.total_price = this.total_price;
     booking.apartment_id = this.apartment[0].id;
     this.user = JSON.parse(<string>(localStorage.getItem('user')));
     booking.user_id = this.user.id;
+    booking.startDate = this.transformDate(booking.startDate);
+    booking.endDate = this.transformDate(booking.endDate);
     console.log(booking)
     // booking.apartment_id = apartment[0].id;
     this.bookingService.requestBooking(booking).subscribe(
       (res) =>{
         this.message = res.message
-        this.toastr.success('Success', this.message)
+        this.toastr.success('Thank you', 'Booking successfully')
         console.log(res)
-        this.router.navigate(['./all-apartments'])
+        this.router.navigate(['./action/bookmarked', this.user.id])
       }, error=>{
         this.toastr.error('Error', this.message)
         console.log(error)

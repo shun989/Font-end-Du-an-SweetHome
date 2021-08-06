@@ -12,6 +12,8 @@ export class PageListComponent implements OnInit {
   apartments: Apartment[] = [];
   // @ts-ignore
   @Pipe({name:'split'})
+  filterTerm!: string;
+
 
   constructor(private apartmentService: ApartmentService) {
   }
