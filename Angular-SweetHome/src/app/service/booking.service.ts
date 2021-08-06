@@ -24,12 +24,21 @@ export class BookingService {
     return this.http.post<any>(environment.ApiUrl + '/booking/create', booking, httpOptions);
   }
 
-  getBookmarked(id: number) {
+  getBookmarked(id: number): Observable<any> {
     let token = localStorage.getItem('token');
     let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
     let httpOptions = {
       headers: headers_object
     };
     return this.http.get(environment.ApiUrl + '/booking/' + id, httpOptions)
+  }
+
+  deleteBookmarked(id: number): Observable<any> {
+    let token = localStorage.getItem('token');
+    let headers_object = new HttpHeaders().set('Authorization', 'Bearer' + token);
+    let httpOptions = {
+      headers: headers_object
+    };
+    return this.http.delete(environment.ApiUrl + '/booking/' + id, httpOptions)
   }
 }
